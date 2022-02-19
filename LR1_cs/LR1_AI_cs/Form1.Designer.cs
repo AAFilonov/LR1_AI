@@ -224,7 +224,7 @@
             this.pictureBox10.TabIndex = 16;
             this.pictureBox10.TabStop = false;
             this.pictureBox10.Tag = "field;15;gray";
-            this.pictureBox10.Click += new System.EventHandler(this.pictureBox10_Click);
+            this.pictureBox10.Click += new System.EventHandler(this.pictureBoxField_Click);
             // 
             // pictureBox15
             // 
