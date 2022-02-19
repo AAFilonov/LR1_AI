@@ -1,0 +1,10 @@
+C:\Users\filon\RiderProjects\LR1_AI\LR1_cs\LR1_AI_cs\LR1_AI_cs\bin\Debug\LR1_AI_cs.exe.config
+C:\Users\filon\RiderProjects\LR1_AI\LR1_cs\LR1_AI_cs\LR1_AI_cs\bin\Debug\LR1_AI_cs.exe
+C:\Users\filon\RiderProjects\LR1_AI\LR1_cs\LR1_AI_cs\LR1_AI_cs\bin\Debug\LR1_AI_cs.pdb
+C:\Users\filon\RiderProjects\LR1_AI\LR1_cs\LR1_AI_cs\LR1_AI_cs\obj\Debug\LR1_AI_cs.csproj.AssemblyReference.cache
+C:\Users\filon\RiderProjects\LR1_AI\LR1_cs\LR1_AI_cs\LR1_AI_cs\obj\Debug\LR1_AI_cs.csproj.SuggestedBindingRedirects.cache
+C:\Users\filon\RiderProjects\LR1_AI\LR1_cs\LR1_AI_cs\LR1_AI_cs\obj\Debug\LR1_AI_cs.Properties.Resources.resources
+C:\Users\filon\RiderProjects\LR1_AI\LR1_cs\LR1_AI_cs\LR1_AI_cs\obj\Debug\LR1_AI_cs.csproj.GenerateResource.cache
+C:\Users\filon\RiderProjects\LR1_AI\LR1_cs\LR1_AI_cs\LR1_AI_cs\obj\Debug\LR1_AI_cs.csproj.CoreCompileInputs.cache
+C:\Users\filon\RiderProjects\LR1_AI\LR1_cs\LR1_AI_cs\LR1_AI_cs\obj\Debug\LR1_AI_cs.exe
+C:\Users\filon\RiderProjects\LR1_AI\LR1_cs\LR1_AI_cs\LR1_AI_cs\obj\Debug\LR1_AI_cs.pdb
