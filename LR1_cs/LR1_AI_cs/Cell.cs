@@ -8,7 +8,7 @@
             RED,
             BLUE,
             ORANGE
-        }
+        }   
 
         public enum Type
         {
@@ -16,9 +16,14 @@
             TARGET
         }
 
+        public Cell(int pos,Color color)
+        {
+            this.position = pos;
+            this.color = color;
+        }
         public int position { get; set; }
-        public Color color { get; set; }
-        public Type type { get; set; }
+        public Color color { get; set; } = Color.GREY;
+     
 
     }
 }

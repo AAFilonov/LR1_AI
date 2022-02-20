@@ -37,14 +37,15 @@ namespace LR1_AI_cs
             }
         }
 
-        public static void parseCell(PictureBox pictureBox)
+        public static Cell parseCell(PictureBox pictureBox)
         {
-            parseCell(pictureBox.Tag.ToString());
+           return  parseCell(pictureBox.Tag.ToString());
         }
 
-        public static void sync(Cell cell, PictureBox pb)
+
+        public static void sync(Cell cell)
         {
-            
+            throw new NotImplementedException();
         }
     }
 }
