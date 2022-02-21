@@ -8,12 +8,10 @@ namespace LR1_AI_cs
         public static Cell parseCell(string tag)
         {
             var args = tag.Split(';');
-            Cell cell = new Cell();
-            cell.type = args[0] == "field" ? Cell.Type.FIELD : Cell.Type.TARGET;
-            cell.position = Int32.Parse(args[1]);
-            cell.color = parseColor(args[2]);
-
-            return cell;
+     
+            int position = Int32.Parse(args[1]);
+            Cell.Color color  = parseColor(args[2]);
+            return new Cell(position,color);
         }
 
         private static Cell.Color parseColor(string strToParse)
@@ -21,7 +19,7 @@ namespace LR1_AI_cs
             switch (strToParse)
             {
                 case "gray":
-                    return Cell.Color.GREY;
+                    return Cell.Color.GRAY;
                     break;
                 case "red":
                     return Cell.Color.RED;
@@ -43,9 +41,6 @@ namespace LR1_AI_cs
         }
 
 
-        public static void sync(Cell cell)
-        {
-            throw new NotImplementedException();
-        }
+      
     }
 }

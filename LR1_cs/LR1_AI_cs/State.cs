@@ -20,11 +20,11 @@ namespace LR1_AI_cs.Properties
         };
         public static Cell[] initialState = new[]
         {
-                                                                           new Cell(1,Cell.Color.GREY),new Cell(2,Cell.Color.GREY),new Cell(3,Cell.Color.GREY),
-                                            new Cell(4,Cell.Color.GREY),new Cell(5,Cell.Color.GREY),new Cell(6,Cell.Color.GREY),new Cell(7,Cell.Color.GREY),
-            new Cell(8,Cell.Color.GREY),new Cell(9,Cell.Color.GREY),new Cell(10,Cell.Color.GREY),new Cell(11,Cell.Color.GREY),new Cell(12,Cell.Color.GREY),
-                                            new Cell(13,Cell.Color.GREY),new Cell(14,Cell.Color.GREY),new Cell(15,Cell.Color.GREY),new Cell(16,Cell.Color.GREY),
-                                                                            new Cell(17,Cell.Color.GREY),new Cell(18,Cell.Color.GREY),new Cell(19,Cell.Color.GREY),
+                                                                           new Cell(1,Cell.Color.GRAY),new Cell(2,Cell.Color.GRAY),new Cell(3,Cell.Color.GRAY),
+                                            new Cell(4,Cell.Color.GRAY),new Cell(5,Cell.Color.GRAY),new Cell(6,Cell.Color.GRAY),new Cell(7,Cell.Color.GRAY),
+            new Cell(8,Cell.Color.GRAY),new Cell(9,Cell.Color.GRAY),new Cell(10,Cell.Color.GRAY),new Cell(11,Cell.Color.GRAY),new Cell(12,Cell.Color.GRAY),
+                                            new Cell(13,Cell.Color.GRAY),new Cell(14,Cell.Color.GRAY),new Cell(15,Cell.Color.GRAY),new Cell(16,Cell.Color.GRAY),
+                                                                            new Cell(17,Cell.Color.GRAY),new Cell(18,Cell.Color.GRAY),new Cell(19,Cell.Color.GRAY),
         };
 
         public Cell[] _cells { get; set; } = initialState.Clone() as Cell[];

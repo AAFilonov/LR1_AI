@@ -72,6 +72,7 @@
             this.pictureBox21 = new System.Windows.Forms.PictureBox();
             this.pictureBox20 = new System.Windows.Forms.PictureBox();
             this.panel3 = new System.Windows.Forms.Panel();
+            this.pictureBox42 = new System.Windows.Forms.PictureBox();
             this.pictureBox41 = new System.Windows.Forms.PictureBox();
             this.pictureBox40 = new System.Windows.Forms.PictureBox();
             this.pictureBox39 = new System.Windows.Forms.PictureBox();
@@ -84,7 +85,6 @@
             this.button4 = new System.Windows.Forms.Button();
             this.labelTargetState = new System.Windows.Forms.Label();
             this.labelEdit = new System.Windows.Forms.Label();
-            this.pictureBox42 = new System.Windows.Forms.PictureBox();
             ((System.ComponentModel.ISupportInitialize) (this.pictureBox1)).BeginInit();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize) (this.pictureBox17)).BeginInit();
@@ -126,11 +126,11 @@
             ((System.ComponentModel.ISupportInitialize) (this.pictureBox21)).BeginInit();
             ((System.ComponentModel.ISupportInitialize) (this.pictureBox20)).BeginInit();
             this.panel3.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize) (this.pictureBox42)).BeginInit();
             ((System.ComponentModel.ISupportInitialize) (this.pictureBox41)).BeginInit();
             ((System.ComponentModel.ISupportInitialize) (this.pictureBox40)).BeginInit();
             ((System.ComponentModel.ISupportInitialize) (this.pictureBox39)).BeginInit();
             ((System.ComponentModel.ISupportInitialize) (this.numericUpDownDepth)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize) (this.pictureBox42)).BeginInit();
             this.SuspendLayout();
             // 
             // pictureBox1
@@ -623,6 +623,17 @@
             this.panel3.Size = new System.Drawing.Size(196, 142);
             this.panel3.TabIndex = 39;
             // 
+            // pictureBox42
+            // 
+            this.pictureBox42.Image = ((System.Drawing.Image) (resources.GetObject("pictureBox42.Image")));
+            this.pictureBox42.Location = new System.Drawing.Point(102, 69);
+            this.pictureBox42.Name = "pictureBox42";
+            this.pictureBox42.Size = new System.Drawing.Size(50, 50);
+            this.pictureBox42.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox42.TabIndex = 24;
+            this.pictureBox42.TabStop = false;
+            this.pictureBox42.Tag = "gray";
+            // 
             // pictureBox41
             // 
             this.pictureBox41.Image = ((System.Drawing.Image) (resources.GetObject("pictureBox41.Image")));
@@ -632,7 +643,7 @@
             this.pictureBox41.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pictureBox41.TabIndex = 23;
             this.pictureBox41.TabStop = false;
-            this.pictureBox41.Tag = "1;gray";
+            this.pictureBox41.Tag = "gray";
             // 
             // pictureBox40
             // 
@@ -643,7 +654,7 @@
             this.pictureBox40.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pictureBox40.TabIndex = 22;
             this.pictureBox40.TabStop = false;
-            this.pictureBox40.Tag = "1;gray";
+            this.pictureBox40.Tag = "gray";
             // 
             // pictureBox39
             // 
@@ -654,7 +665,7 @@
             this.pictureBox39.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pictureBox39.TabIndex = 21;
             this.pictureBox39.TabStop = false;
-            this.pictureBox39.Tag = "1;gray";
+            this.pictureBox39.Tag = "gray";
             // 
             // button1
             // 
@@ -734,17 +745,6 @@
             this.labelEdit.TabIndex = 49;
             this.labelEdit.Text = "Целевое состояние";
             // 
-            // pictureBox42
-            // 
-            this.pictureBox42.Image = ((System.Drawing.Image) (resources.GetObject("pictureBox42.Image")));
-            this.pictureBox42.Location = new System.Drawing.Point(102, 69);
-            this.pictureBox42.Name = "pictureBox42";
-            this.pictureBox42.Size = new System.Drawing.Size(50, 50);
-            this.pictureBox42.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBox42.TabIndex = 24;
-            this.pictureBox42.TabStop = false;
-            this.pictureBox42.Tag = "1;gray";
-            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -806,11 +806,11 @@
             ((System.ComponentModel.ISupportInitialize) (this.pictureBox21)).EndInit();
             ((System.ComponentModel.ISupportInitialize) (this.pictureBox20)).EndInit();
             this.panel3.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize) (this.pictureBox42)).EndInit();
             ((System.ComponentModel.ISupportInitialize) (this.pictureBox41)).EndInit();
             ((System.ComponentModel.ISupportInitialize) (this.pictureBox40)).EndInit();
             ((System.ComponentModel.ISupportInitialize) (this.pictureBox39)).EndInit();
             ((System.ComponentModel.ISupportInitialize) (this.numericUpDownDepth)).EndInit();
-            ((System.ComponentModel.ISupportInitialize) (this.pictureBox42)).EndInit();
             this.ResumeLayout(false);
         }
 

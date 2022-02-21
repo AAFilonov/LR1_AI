@@ -28,7 +28,7 @@ namespace LR1_AI_cs.Properties
         {
             foreach (var cell in cellsToUpdate)
             {
-                CellParser.sync(cell);
+               
             }
         }
 
