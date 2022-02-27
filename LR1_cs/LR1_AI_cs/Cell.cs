@@ -19,9 +19,16 @@ namespace LR1_AI_cs
             TARGET
         }
 
-        public Cell(int pos,Color color)
+        public Cell( int position, Color color)
         {
-            this.position = pos;
+            this.type = Type.FIELD;
+            this.position = position;
+            this.color = color;
+        }
+        public Cell(Type type, int position, Color color)
+        {
+            this.type = type;
+            this.position = position;
             this.color = color;
         }
         public int position { get; set; }
@@ -31,45 +38,10 @@ namespace LR1_AI_cs
 
         public String constructTag()
         {
-            return typeToString(type)+";"+ position + ";" +colorToString(color);
+            return CellParser.typeToString(type)+";"+ position + ";" +CellParser.colorToString(color);
         }
 
-        private string typeToString(Type type)
-        {
-            switch (type)
-            {
-                case Type.FIELD:
-                    return "field";
-                    break;
-                case Type.TARGET:
-                    return "target";
-                    break; 
-                default:
-                    throw new ArgumentOutOfRangeException(nameof(type), type, null);
-            }
-        }
-
-        private  static String colorToString(Color color)
-        {
-            switch (color)
-            {
-                case Color.GRAY:
-                    return "gray";
-                    break;
-                case Color.RED:
-                    return "red";
-                    break;
-                case Color.BLUE:
-                    return "blue";
-                    break;
-                case Color.ORANGE:
-                    return "orange";
-                    break;
-                default:
-                    throw new ArgumentOutOfRangeException(nameof(color), color, null);
-            }
-
-            ;
-        }
+       
+       
     }
 }

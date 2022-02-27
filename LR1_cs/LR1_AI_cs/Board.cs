@@ -7,8 +7,8 @@ namespace LR1_AI_cs.Properties
     public class Board
     {
         private const int INDEX_OF_LAST_ADJACENT_CELL =5;
-        private State targetState = new State();
-        private State currentState= new State();
+        public State targetState {get;set;}= new State();
+        public State currentState{get;set;}= new State();
 
         public void rotateAround(int pos)
         {

@@ -11,64 +11,178 @@ using LR1_AI_cs.Properties;
 
 namespace LR1_AI_cs
 {
-    
     public partial class Form1 : Form
     {
-        private Board board = new Board();
-        private Dictionary<int, PictureBox> fieldPictureBoxes = new Dictionary<int, PictureBox>();
-        private Dictionary<int, PictureBox> targetPictureBoxes = new Dictionary<int, PictureBox>();
+        private Board _board = new Board();
+        private Dictionary<int, PictureBox> _fieldPictureBoxes = new Dictionary<int, PictureBox>();
+        private Dictionary<int, PictureBox> _targetPictureBoxes = new Dictionary<int, PictureBox>();
+        private GameState _gameState = GameState.PREPARATION;
+        private Cell.Color _selectedColor = Cell.Color.ORANGE;
+
         public Form1()
         {
             InitializeComponent();
-            
-            foreach (Control item in this.Controls)
+            initPictureBoxes();
+        }
+
+        private void initPictureBoxes()
+        {
+            foreach (Control item in panel1.Controls.OfType<PictureBox>())
             {
                 String tag = item.Tag.ToString();
                 if (tag.StartsWith("field"))
                 {
                     PictureBox pictureBox = (PictureBox) item;
                     int position = CellParser.parseCell(pictureBox).position;
-                    fieldPictureBoxes.Add(position,pictureBox);        
+                    _fieldPictureBoxes.Add(position, pictureBox);
                 }
-                else if(tag.StartsWith("target"))
+            }
+
+            foreach (Control item in panel2.Controls.OfType<PictureBox>())
+            {
+                String tag = item.Tag.ToString();
+                if (tag.StartsWith("target"))
                 {
                     PictureBox pictureBox = (PictureBox) item;
                     int position = CellParser.parseCell(pictureBox).position;
-                    targetPictureBoxes.Add(position,pictureBox);  
+                    _targetPictureBoxes.Add(position, pictureBox);
                 }
-            } 
+            }
         }
 
 
         private void pictureBoxField_Click(object sender, EventArgs e)
         {
             PictureBox pictureBox = (PictureBox) sender;
-            int postion = CellParser.parseCell(pictureBox).position;
-            board.rotateAround(postion);
+            Cell updatedCell = CellParser.parseCell(pictureBox);
+            if (_gameState == GameState.PREPARATION)
+            {
+                updatedCell.color = _selectedColor;
+                sync(updatedCell);
+            }
+            else if (_gameState == GameState.MANUAL)
+            {
+                _board.rotateAround(updatedCell.position);
+            }
         }
+
+        private void pictureBoxTarget_Click(object sender, EventArgs e)
+        {
+            PictureBox pictureBox = (PictureBox) sender;
+            Cell updatedCell = CellParser.parseCell(pictureBox);
+            if (_gameState == GameState.PREPARATION)
+            {
+                updatedCell.color = _selectedColor;
+                sync(updatedCell);
+            }
+        }
+
+        private void pictureBoxColor_Click(object sender, EventArgs e)
+        {
+            PictureBox pictureBox = (PictureBox) sender;
+            String tag = pictureBox.Tag.ToString();
+            _selectedColor = CellParser.parseColor(tag);
+            changeSelectedColorLabel(_selectedColor);
+        }
+
         public void sync(Cell cell)
         {
-            PictureBox pictureBox = fieldPictureBoxes[cell.position];
-            chagePictureBoxColor (fieldPictureBoxes[cell.position],cell.color);
-            pictureBox.Tag = cell.constructTag();
+            PictureBox pbToSync = null;
+
+            if (cell.type == Cell.Type.FIELD)
+            {
+                pbToSync = _fieldPictureBoxes[cell.position];
+                _board.currentState._cells[cell.position].color = cell.color;
+            }
+            else if (cell.type == Cell.Type.TARGET)
+            {
+                pbToSync = _targetPictureBoxes[cell.position];
+                _board.targetState._cells[cell.position].color = cell.color;
+            }
+
+            chagePictureBoxColor(pbToSync, cell.color);
+            pbToSync.Tag = cell.constructTag();
         }
 
         private void chagePictureBoxColor(PictureBox pictureBox, Cell.Color newColor)
         {
+            var resources = new ComponentResourceManager(typeof(Form1));
             switch (newColor)
             {
                 case Cell.Color.GRAY:
-                    ///pictureBox.Image;
+                    pictureBox.Image = (Image) resources.GetObject("pictureBox39.Image");
                     break;
                 case Cell.Color.RED:
+                    pictureBox.Image = (Image) resources.GetObject("pictureBox41.Image");
                     break;
                 case Cell.Color.BLUE:
+                    pictureBox.Image = (Image) resources.GetObject("pictureBox40.Image");
                     break;
                 case Cell.Color.ORANGE:
+                    pictureBox.Image = (Image) resources.GetObject("pictureBox42.Image");
+                    break;
+                default:
+                    throw new ArgumentOutOfRangeException(nameof(newColor), newColor, null);
+            }
+
+            pictureBox.Refresh();
+        }
+
+        private void changeGameState(GameState newState)
+        {
+            _gameState = newState;
+            switch (newState)
+            {
+                case GameState.PREPARATION:
+                    labelGameState.Text = "Состояние: ПОДГОТОВКА";
+                    break;
+                case GameState.MANUAL:
+                    labelGameState.Text = "Состояние: ИГРА";
+                    break;
+                case GameState.AUTO:
+                    labelGameState.Text = "Состояние: АВТО";
+                    break;
+                case GameState.SOLUTION:
+                    labelGameState.Text = "Состояние: РЕШЕНИЕ";
+                    break;
+                default:
+                    throw new ArgumentOutOfRangeException(nameof(newState), newState, null);
+            }
+        }
+
+        private void changeSelectedColorLabel(Cell.Color newColor)
+        {
+            switch (newColor)
+            {
+                case Cell.Color.GRAY:
+                    labelSelectedColor.Text = "Выбран: серый";
+                    break;
+                case Cell.Color.RED:
+                    labelSelectedColor.Text = "Выбран: красный";
+                    break;
+                case Cell.Color.BLUE:
+                    labelSelectedColor.Text = "Выбран: синий";
+                    break;
+                case Cell.Color.ORANGE:
+                    labelSelectedColor.Text = "Выбран: оранжевый";
                     break;
                 default:
                     throw new ArgumentOutOfRangeException(nameof(newColor), newColor, null);
             }
         }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            throw new System.NotImplementedException();
+        }
+    }
+
+
+    internal enum GameState
+    {
+        PREPARATION,
+        MANUAL,
+        AUTO,
+        SOLUTION
     }
 }
