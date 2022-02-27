@@ -86,6 +86,10 @@
             this.labelTargetState = new System.Windows.Forms.Label();
             this.labelGameState = new System.Windows.Forms.Label();
             this.labelSelectedColor = new System.Windows.Forms.Label();
+            this.buttonHistoryBack = new System.Windows.Forms.Button();
+            this.buttonHistoryForward = new System.Windows.Forms.Button();
+            this.numericUpDownHistory = new System.Windows.Forms.NumericUpDown();
+            this.labelHistory = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize) (this.pictureBox1)).BeginInit();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize) (this.pictureBox17)).BeginInit();
@@ -132,6 +136,7 @@
             ((System.ComponentModel.ISupportInitialize) (this.pictureBox40)).BeginInit();
             ((System.ComponentModel.ISupportInitialize) (this.pictureBox39)).BeginInit();
             ((System.ComponentModel.ISupportInitialize) (this.numericUpDownDepth)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize) (this.numericUpDownHistory)).BeginInit();
             this.SuspendLayout();
             // 
             // pictureBox1
@@ -833,7 +838,7 @@
             this.labelTargetState.Location = new System.Drawing.Point(315, 9);
             this.labelTargetState.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.labelTargetState.Name = "labelTargetState";
-            this.labelTargetState.Size = new System.Drawing.Size(75, 19);
+            this.labelTargetState.Size = new System.Drawing.Size(125, 19);
             this.labelTargetState.TabIndex = 48;
             this.labelTargetState.Text = "Целевое состояние";
             // 
@@ -855,11 +860,56 @@
             this.labelSelectedColor.TabIndex = 51;
             this.labelSelectedColor.Text = "Выбран: серый";
             // 
+            // buttonHistoryBack
+            // 
+            this.buttonHistoryBack.Location = new System.Drawing.Point(473, 260);
+            this.buttonHistoryBack.Margin = new System.Windows.Forms.Padding(2);
+            this.buttonHistoryBack.Name = "buttonHistoryBack";
+            this.buttonHistoryBack.Size = new System.Drawing.Size(20, 21);
+            this.buttonHistoryBack.TabIndex = 52;
+            this.buttonHistoryBack.Text = "<";
+            this.buttonHistoryBack.UseVisualStyleBackColor = true;
+            this.buttonHistoryBack.Click += new System.EventHandler(this.buttonHistoryBack_Click);
+            // 
+            // buttonHistoryForward
+            // 
+            this.buttonHistoryForward.Location = new System.Drawing.Point(557, 259);
+            this.buttonHistoryForward.Margin = new System.Windows.Forms.Padding(2);
+            this.buttonHistoryForward.Name = "buttonHistoryForward";
+            this.buttonHistoryForward.Size = new System.Drawing.Size(20, 21);
+            this.buttonHistoryForward.TabIndex = 53;
+            this.buttonHistoryForward.Text = ">";
+            this.buttonHistoryForward.UseVisualStyleBackColor = true;
+            this.buttonHistoryForward.Click += new System.EventHandler(this.buttonHistoryForward_Click);
+            // 
+            // numericUpDownHistory
+            // 
+            this.numericUpDownHistory.Location = new System.Drawing.Point(497, 260);
+            this.numericUpDownHistory.Margin = new System.Windows.Forms.Padding(2);
+            this.numericUpDownHistory.Maximum = new decimal(new int[] {100000, 0, 0, 0});
+            this.numericUpDownHistory.Name = "numericUpDownHistory";
+            this.numericUpDownHistory.ReadOnly = true;
+            this.numericUpDownHistory.Size = new System.Drawing.Size(56, 20);
+            this.numericUpDownHistory.TabIndex = 54;
+            // 
+            // labelHistory
+            // 
+            this.labelHistory.Location = new System.Drawing.Point(473, 238);
+            this.labelHistory.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.labelHistory.Name = "labelHistory";
+            this.labelHistory.Size = new System.Drawing.Size(125, 19);
+            this.labelHistory.TabIndex = 55;
+            this.labelHistory.Text = "История";
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(600, 366);
+            this.Controls.Add(this.labelHistory);
+            this.Controls.Add(this.numericUpDownHistory);
+            this.Controls.Add(this.buttonHistoryForward);
+            this.Controls.Add(this.buttonHistoryBack);
             this.Controls.Add(this.labelSelectedColor);
             this.Controls.Add(this.labelGameState);
             this.Controls.Add(this.labelTargetState);
@@ -923,8 +973,16 @@
             ((System.ComponentModel.ISupportInitialize) (this.pictureBox40)).EndInit();
             ((System.ComponentModel.ISupportInitialize) (this.pictureBox39)).EndInit();
             ((System.ComponentModel.ISupportInitialize) (this.numericUpDownDepth)).EndInit();
+            ((System.ComponentModel.ISupportInitialize) (this.numericUpDownHistory)).EndInit();
             this.ResumeLayout(false);
         }
+
+        private System.Windows.Forms.NumericUpDown numericUpDownHistory;
+
+        private System.Windows.Forms.Button buttonHistoryBack;
+        private System.Windows.Forms.Button buttonHistoryForward;
+        private System.Windows.Forms.NumericUpDown numericUpDown1;
+        private System.Windows.Forms.Label labelHistory;
 
         private System.Windows.Forms.Button buttonManualStart;
 

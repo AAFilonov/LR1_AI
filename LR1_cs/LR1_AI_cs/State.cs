@@ -19,7 +19,7 @@ namespace LR1_AI_cs.Properties
             {14, new int[] {9,10,15,18,17,13}},
             {15, new int[] {10,11,16,19,18,14}},
         };
-        public static List<Cell> initialState = new List<Cell>()
+        public static List<Cell> initialState_cells = new List<Cell>()
         {
                                                                            new Cell(1,Cell.Color.GRAY),new Cell(2,Cell.Color.GRAY),new Cell(3,Cell.Color.GRAY),
                                             new Cell(4,Cell.Color.GRAY),new Cell(5,Cell.Color.GRAY),new Cell(6,Cell.Color.GRAY),new Cell(7,Cell.Color.GRAY),
@@ -28,10 +28,19 @@ namespace LR1_AI_cs.Properties
                                                                             new Cell(17,Cell.Color.GRAY),new Cell(18,Cell.Color.GRAY),new Cell(19,Cell.Color.GRAY),
         };
 
-        public List<Cell> _cells { get; set; } =deepCopy (initialState);
+     
+
+        public List<Cell> _cells { get; set; } =deepCopy (initialState_cells);
         public State parent { get; set; } = null;
 
-
+        public State()
+        {
+            _cells = deepCopy (initialState_cells);
+        }
+        public State(State stateToAdd)
+        {
+            _cells = deepCopy(stateToAdd._cells);
+        }
         public IList<Cell> getAdjacentCells(int pos)
         {
             if (adjacentCellsMap.ContainsKey(pos))

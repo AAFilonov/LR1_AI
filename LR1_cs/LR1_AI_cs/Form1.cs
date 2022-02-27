@@ -18,6 +18,8 @@ namespace LR1_AI_cs
         private readonly Dictionary<int, PictureBox> _targetPictureBoxes = new Dictionary<int, PictureBox>();
         private GameState _gameState = GameState.PREPARATION;
         private Cell.Color _selectedColor = Cell.Color.ORANGE;
+        private int _stateIndex = 0;
+        private History _history = new History();
 
         public Form1()
         {
@@ -62,7 +64,19 @@ namespace LR1_AI_cs
             }
             else if (_gameState == GameState.MANUAL)
             {
-                _board.rotateClockwise(updatedCell.position);
+                doTurn(updatedCell);
+            }
+        }
+
+        private void doTurn(Cell updatedCell)
+        {
+            _board.rotateClockwise(updatedCell.position);
+            _history.addState(_board.currentState);
+            if (_board.isWin())
+            {
+                updateGameStateLabel(GameState.SOLUTION);
+                _stateIndex = _history.getHistoryDepth();
+                numericUpDownHistory.Value = _stateIndex;
             }
         }
 
@@ -104,95 +118,59 @@ namespace LR1_AI_cs
             pbToSync.Tag = cell.constructTag();
         }
 
-        private void chagePictureBoxColor(PictureBox pictureBox, Cell.Color newColor)
-        {
-            var resources = new ComponentResourceManager(typeof(Form1));
-            switch (newColor)
-            {
-                case Cell.Color.GRAY:
-                    pictureBox.Image = (Image) resources.GetObject("pictureBox39.Image");
-                    break;
-                case Cell.Color.RED:
-                    pictureBox.Image = (Image) resources.GetObject("pictureBox41.Image");
-                    break;
-                case Cell.Color.BLUE:
-                    pictureBox.Image = (Image) resources.GetObject("pictureBox40.Image");
-                    break;
-                case Cell.Color.ORANGE:
-                    pictureBox.Image = (Image) resources.GetObject("pictureBox42.Image");
-                    break;
-                default:
-                    throw new ArgumentOutOfRangeException(nameof(newColor), newColor, null);
-            }
-
-            pictureBox.Refresh();
-        }
-
-        public void changeGameState(GameState newState)
-        {
-            _gameState = newState;
-            switch (newState)
-            {
-                case GameState.PREPARATION:
-                    labelGameState.Text = "Состояние: ПОДГОТОВКА";
-                    break;
-                case GameState.MANUAL:
-                    labelGameState.Text = "Состояние: ИГРА";
-                    break;
-                case GameState.AUTO:
-                    labelGameState.Text = "Состояние: АВТО";
-                    break;
-                case GameState.SOLUTION:
-                    labelGameState.Text = "Состояние: РЕШЕНИЕ";
-                    break;
-                default:
-                    throw new ArgumentOutOfRangeException(nameof(newState), newState, null);
-            }
-        }
-
-        private void changeSelectedColorLabel(Cell.Color newColor)
-        {
-            switch (newColor)
-            {
-                case Cell.Color.GRAY:
-                    labelSelectedColor.Text = "Выбран: серый";
-                    break;
-                case Cell.Color.RED:
-                    labelSelectedColor.Text = "Выбран: красный";
-                    break;
-                case Cell.Color.BLUE:
-                    labelSelectedColor.Text = "Выбран: синий";
-                    break;
-                case Cell.Color.ORANGE:
-                    labelSelectedColor.Text = "Выбран: оранжевый";
-                    break;
-                default:
-                    throw new ArgumentOutOfRangeException(nameof(newColor), newColor, null);
-            }
-        }
-
         private void buttonManualStart_Click(object sender, EventArgs e)
         {
-            changeGameState(GameState.MANUAL);
+            updateGameStateLabel(GameState.MANUAL);
+            _history.addState(_board.currentState);
         }
 
         private void buttonReset_Click(object sender, EventArgs e)
         {
-            changeGameState(GameState.PREPARATION);
+            updateGameStateLabel(GameState.PREPARATION);
             _board.resetAll();
             foreach (var bp in _fieldPictureBoxes.Values)
             {
                 chagePictureBoxColor(bp, Cell.Color.GRAY);
             }
+
             foreach (var bp in _targetPictureBoxes.Values)
             {
                 chagePictureBoxColor(bp, Cell.Color.GRAY);
             }
+
+            _history.reset();
         }
 
         private void buttonAutoStart_Click(object sender, EventArgs e)
         {
-            changeGameState(GameState.AUTO);
+            updateGameStateLabel(GameState.AUTO);
+        }
+
+        private void buttonHistoryBack_Click(object sender, EventArgs e)
+        {
+            if (_gameState == GameState.SOLUTION && _stateIndex > 0)
+            {
+                _stateIndex--;
+                numericUpDownHistory.Value = _stateIndex;
+                _board.setCurrent(_history.getState(_stateIndex));
+                syncState(_board.currentState);
+            }
+        }
+
+        private void buttonHistoryForward_Click(object sender, EventArgs e)
+        {
+            if (_gameState == GameState.SOLUTION&& _stateIndex < _history.getHistoryDepth())
+            {
+                _stateIndex++;
+                numericUpDownHistory.Value = _stateIndex;
+                _board.setCurrent(_history.getState(_stateIndex));
+                syncState(_board.currentState);
+            }
+        }
+
+        private void syncState(State state)
+        {
+            state._cells.ToList().ForEach(cell => sync(cell));
         }
     }
 

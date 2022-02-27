@@ -11,7 +11,7 @@ namespace LR1_AI_cs.Properties
         private const int INDEX_OF_LAST_ADJACENT_CELL = 5;
         public State targetState { get; set; } = new State();
         public State currentState { get; set; } = new State();
-        public List<State> history { get; set; } = new List<State>();
+      
 
         public Board(Form1 form)
         {
@@ -20,15 +20,13 @@ namespace LR1_AI_cs.Properties
 
         public void rotateClockwise(int pos)
         {
-            history.Add(currentState);
+         
             IList<Cell> updatedCells = rotateCells(pos);
             updateState(updatedCells);
-            if (isWin())
-            {
-                _form.changeGameState(GameState.SOLUTION);
-            };
+          
+            
         }
-
+           
         private IList<Cell> rotateCells(int pos)
         {
             var adjacentCells = currentState.getAdjacentCells(pos);
@@ -67,8 +65,13 @@ namespace LR1_AI_cs.Properties
 
         public void resetAll()
         {
-            currentState._cells = State.deepCopy(State.initialState);
-            targetState._cells = State.deepCopy(State.initialState);
+            currentState._cells = State.deepCopy(State.initialState_cells);
+            targetState._cells = State.deepCopy(State.initialState_cells);
+        }
+
+        public void setCurrent(State newState)
+        {
+            currentState = newState;
         }
     }
 }
