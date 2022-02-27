@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 
 namespace LR1_AI_cs
 {
@@ -41,7 +42,29 @@ namespace LR1_AI_cs
             return CellParser.typeToString(type)+";"+ position + ";" +CellParser.colorToString(color);
         }
 
-       
-       
+
+        public override string ToString()
+        {
+            return $"{nameof(position)}: {position}, {nameof(color)}: {color}, {nameof(type)}: {type}";
+        }
+
+        private sealed class ColorEqualityComparer : IEqualityComparer<Cell>
+        {
+            public bool Equals(Cell x, Cell y)
+            {
+                if (ReferenceEquals(x, y)) return true;
+                if (ReferenceEquals(x, null)) return false;
+                if (ReferenceEquals(y, null)) return false;
+                if (x.GetType() != y.GetType()) return false;
+                return x.color == y.color;
+            }
+
+            public int GetHashCode(Cell obj)
+            {
+                return (int) obj.color;
+            }
+        }
+
+        public static IEqualityComparer<Cell> ColorComparer { get; } = new ColorEqualityComparer();
     }
 }

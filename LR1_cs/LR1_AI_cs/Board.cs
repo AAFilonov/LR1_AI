@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 
 namespace LR1_AI_cs.Properties
 {
@@ -17,9 +18,19 @@ namespace LR1_AI_cs.Properties
             _form = form;
         }
 
-        public void rotateAround(int pos)
+        public void rotateClockwise(int pos)
         {
             history.Add(currentState);
+            IList<Cell> updatedCells = rotateCells(pos);
+            updateState(updatedCells);
+            if (isWin())
+            {
+                _form.changeGameState(GameState.SOLUTION);
+            };
+        }
+
+        private IList<Cell> rotateCells(int pos)
+        {
             var adjacentCells = currentState.getAdjacentCells(pos);
             var temp = adjacentCells[0].color;
 
@@ -31,7 +42,7 @@ namespace LR1_AI_cs.Properties
             }
 
             adjacentCells[0].color = temp;
-            updateState(adjacentCells);
+            return adjacentCells;
         }
 
         private void updateState(IList<Cell> cellsToUpdate)
@@ -45,7 +56,19 @@ namespace LR1_AI_cs.Properties
 
         public Boolean isWin()
         {
-            return currentState == targetState;
+            bool isEqual = true;
+            for (int i = 0; i < 19; i++)
+            {
+                if (currentState._cells[i].color != targetState._cells[i].color)
+                    return false;
+            }
+            return true;
+        }
+
+        public void resetAll()
+        {
+            currentState._cells = State.deepCopy(State.initialState);
+            targetState._cells = State.deepCopy(State.initialState);
         }
     }
 }

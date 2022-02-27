@@ -62,7 +62,7 @@ namespace LR1_AI_cs
             }
             else if (_gameState == GameState.MANUAL)
             {
-                _board.rotateAround(updatedCell.position);
+                _board.rotateClockwise(updatedCell.position);
             }
         }
 
@@ -70,7 +70,7 @@ namespace LR1_AI_cs
         {
             PictureBox pictureBox = (PictureBox) sender;
             Cell updatedCell = CellParser.parseCell(pictureBox);
-                if (_gameState == GameState.PREPARATION)
+            if (_gameState == GameState.PREPARATION)
             {
                 updatedCell.color = _selectedColor;
                 sync(updatedCell);
@@ -92,12 +92,12 @@ namespace LR1_AI_cs
             if (cell.type == Cell.Type.FIELD)
             {
                 pbToSync = _fieldPictureBoxes[cell.position];
-                _board.currentState._cells[cell.position-1].color = cell.color;
+                _board.currentState._cells[cell.position - 1].color = cell.color;
             }
             else if (cell.type == Cell.Type.TARGET)
             {
                 pbToSync = _targetPictureBoxes[cell.position];
-                _board.targetState._cells[cell.position-1].color = cell.color;
+                _board.targetState._cells[cell.position - 1].color = cell.color;
             }
 
             chagePictureBoxColor(pbToSync, cell.color);
@@ -128,7 +128,7 @@ namespace LR1_AI_cs
             pictureBox.Refresh();
         }
 
-        private void changeGameState(GameState newState)
+        public void changeGameState(GameState newState)
         {
             _gameState = newState;
             switch (newState)
@@ -173,12 +173,21 @@ namespace LR1_AI_cs
 
         private void buttonManualStart_Click(object sender, EventArgs e)
         {
-            changeGameState( GameState.MANUAL);
+            changeGameState(GameState.MANUAL);
         }
 
         private void buttonReset_Click(object sender, EventArgs e)
         {
-            throw new System.NotImplementedException();
+            changeGameState(GameState.PREPARATION);
+            _board.resetAll();
+            foreach (var bp in _fieldPictureBoxes.Values)
+            {
+                chagePictureBoxColor(bp, Cell.Color.GRAY);
+            }
+            foreach (var bp in _targetPictureBoxes.Values)
+            {
+                chagePictureBoxColor(bp, Cell.Color.GRAY);
+            }
         }
 
         private void buttonAutoStart_Click(object sender, EventArgs e)
@@ -188,7 +197,7 @@ namespace LR1_AI_cs
     }
 
 
-    internal enum GameState
+    public enum GameState
     {
         PREPARATION,
         MANUAL,

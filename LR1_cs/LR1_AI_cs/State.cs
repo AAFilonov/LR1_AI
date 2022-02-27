@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 
@@ -18,7 +19,7 @@ namespace LR1_AI_cs.Properties
             {14, new int[] {9,10,15,18,17,13}},
             {15, new int[] {10,11,16,19,18,14}},
         };
-        public static Cell[] initialState = new[]
+        public static List<Cell> initialState = new List<Cell>()
         {
                                                                            new Cell(1,Cell.Color.GRAY),new Cell(2,Cell.Color.GRAY),new Cell(3,Cell.Color.GRAY),
                                             new Cell(4,Cell.Color.GRAY),new Cell(5,Cell.Color.GRAY),new Cell(6,Cell.Color.GRAY),new Cell(7,Cell.Color.GRAY),
@@ -27,7 +28,9 @@ namespace LR1_AI_cs.Properties
                                                                             new Cell(17,Cell.Color.GRAY),new Cell(18,Cell.Color.GRAY),new Cell(19,Cell.Color.GRAY),
         };
 
-        public Cell[] _cells { get; set; } = initialState.Clone() as Cell[];
+        public List<Cell> _cells { get; set; } =deepCopy (initialState);
+        public State parent { get; set; } = null;
+
 
         public IList<Cell> getAdjacentCells(int pos)
         {
@@ -45,5 +48,11 @@ namespace LR1_AI_cs.Properties
             }
             else return new List<Cell>();
         }
+        public static List<Cell> deepCopy(List<Cell>  cellsToCopy)
+        {
+            return cellsToCopy.Select(cell => new Cell(cell.type, cell.position, cell.color)).ToList();
+        }
     }
+   
+    
 }
