@@ -6,21 +6,31 @@ namespace LR1_AI_cs.Properties
 {
     public class Board
     {
-        private const int INDEX_OF_LAST_ADJACENT_CELL =5;
-        public State targetState {get;set;}= new State();
-        public State currentState{get;set;}= new State();
+        private Form1 _form { get; }
+        private const int INDEX_OF_LAST_ADJACENT_CELL = 5;
+        public State targetState { get; set; } = new State();
+        public State currentState { get; set; } = new State();
+        public List<State> history { get; set; } = new List<State>();
+
+        public Board(Form1 form)
+        {
+            _form = form;
+        }
 
         public void rotateAround(int pos)
         {
+            history.Add(currentState);
             var adjacentCells = currentState.getAdjacentCells(pos);
+            var temp = adjacentCells[0].color;
 
-            for (int i = 0; i <= INDEX_OF_LAST_ADJACENT_CELL; i++)
+            for (int i = 1; i <= INDEX_OF_LAST_ADJACENT_CELL; i++)
             {
-               var a = adjacentCells[(i + 1) % INDEX_OF_LAST_ADJACENT_CELL].color; 
-               var b=  adjacentCells[i].color;
-               (a, b) = (b, a);
-
+                var tempColor = adjacentCells[i].color;
+                adjacentCells[i].color = temp;
+                temp = tempColor;
             }
+
+            adjacentCells[0].color = temp;
             updateState(adjacentCells);
         }
 
@@ -28,15 +38,14 @@ namespace LR1_AI_cs.Properties
         {
             foreach (var cell in cellsToUpdate)
             {
-               
+                _form.sync(cell);
             }
         }
 
-       
+
         public Boolean isWin()
         {
             return currentState == targetState;
         }
     }
-    
 }

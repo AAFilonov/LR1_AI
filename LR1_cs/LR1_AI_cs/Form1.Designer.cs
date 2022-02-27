@@ -765,7 +765,7 @@
             this.buttonManualStart.TabIndex = 41;
             this.buttonManualStart.Text = "Вручную";
             this.buttonManualStart.UseVisualStyleBackColor = true;
-            this.buttonManualStart.Click += new System.EventHandler(this.button1_Click);
+            this.buttonManualStart.Click += new System.EventHandler(this.buttonManualStart_Click);
             // 
             // button2
             // 
@@ -776,6 +776,7 @@
             this.button2.TabIndex = 42;
             this.button2.Text = "Авто";
             this.button2.UseVisualStyleBackColor = true;
+            this.button2.Click += new System.EventHandler(this.buttonAutoStart_Click);
             // 
             // button3
             // 
@@ -786,6 +787,7 @@
             this.button3.TabIndex = 43;
             this.button3.Text = "Сброс";
             this.button3.UseVisualStyleBackColor = true;
+            this.button3.Click += new System.EventHandler(this.buttonReset_Click);
             // 
             // numericUpDownDepth
             // 
@@ -837,10 +839,10 @@
             // 
             // labelGameState
             // 
-            this.labelGameState.Location = new System.Drawing.Point(199, 7);
+            this.labelGameState.Location = new System.Drawing.Point(167, 9);
             this.labelGameState.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.labelGameState.Name = "labelGameState";
-            this.labelGameState.Size = new System.Drawing.Size(96, 19);
+            this.labelGameState.Size = new System.Drawing.Size(144, 19);
             this.labelGameState.TabIndex = 50;
             this.labelGameState.Text = "Состояние: ПОДГОТОВКА";
             // 

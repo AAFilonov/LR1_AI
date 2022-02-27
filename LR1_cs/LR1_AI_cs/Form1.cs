@@ -13,28 +13,28 @@ namespace LR1_AI_cs
 {
     public partial class Form1 : Form
     {
-        private Board _board = new Board();
-        private Dictionary<int, PictureBox> _fieldPictureBoxes = new Dictionary<int, PictureBox>();
-        private Dictionary<int, PictureBox> _targetPictureBoxes = new Dictionary<int, PictureBox>();
+        private readonly Board _board;
+        private readonly Dictionary<int, PictureBox> _fieldPictureBoxes = new Dictionary<int, PictureBox>();
+        private readonly Dictionary<int, PictureBox> _targetPictureBoxes = new Dictionary<int, PictureBox>();
         private GameState _gameState = GameState.PREPARATION;
         private Cell.Color _selectedColor = Cell.Color.ORANGE;
 
         public Form1()
         {
             InitializeComponent();
+            _board = new Board(this);
             initPictureBoxes();
         }
 
         private void initPictureBoxes()
         {
-            foreach (Control item in panel1.Controls.OfType<PictureBox>())
+            foreach (PictureBox item in panel1.Controls.OfType<PictureBox>())
             {
                 String tag = item.Tag.ToString();
                 if (tag.StartsWith("field"))
                 {
-                    PictureBox pictureBox = (PictureBox) item;
-                    int position = CellParser.parseCell(pictureBox).position;
-                    _fieldPictureBoxes.Add(position, pictureBox);
+                    int position = CellParser.parseCell(item).position;
+                    _fieldPictureBoxes.Add(position, item);
                 }
             }
 
@@ -70,7 +70,7 @@ namespace LR1_AI_cs
         {
             PictureBox pictureBox = (PictureBox) sender;
             Cell updatedCell = CellParser.parseCell(pictureBox);
-            if (_gameState == GameState.PREPARATION)
+                if (_gameState == GameState.PREPARATION)
             {
                 updatedCell.color = _selectedColor;
                 sync(updatedCell);
@@ -88,16 +88,16 @@ namespace LR1_AI_cs
         public void sync(Cell cell)
         {
             PictureBox pbToSync = null;
-
+            //TODO поправить костыль - нумерация в борде начинается с 1 
             if (cell.type == Cell.Type.FIELD)
             {
                 pbToSync = _fieldPictureBoxes[cell.position];
-                _board.currentState._cells[cell.position].color = cell.color;
+                _board.currentState._cells[cell.position-1].color = cell.color;
             }
             else if (cell.type == Cell.Type.TARGET)
             {
                 pbToSync = _targetPictureBoxes[cell.position];
-                _board.targetState._cells[cell.position].color = cell.color;
+                _board.targetState._cells[cell.position-1].color = cell.color;
             }
 
             chagePictureBoxColor(pbToSync, cell.color);
@@ -171,9 +171,19 @@ namespace LR1_AI_cs
             }
         }
 
-        private void button1_Click(object sender, EventArgs e)
+        private void buttonManualStart_Click(object sender, EventArgs e)
+        {
+            changeGameState( GameState.MANUAL);
+        }
+
+        private void buttonReset_Click(object sender, EventArgs e)
         {
             throw new System.NotImplementedException();
+        }
+
+        private void buttonAutoStart_Click(object sender, EventArgs e)
+        {
+            changeGameState(GameState.AUTO);
         }
     }
 

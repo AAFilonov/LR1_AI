@@ -8,7 +8,7 @@ namespace LR1_AI_cs.Properties
 
     public class State
     {
-        public static Dictionary<int, int[]> adjacentCells = new Dictionary<int, int[]>()
+        public static Dictionary<int, int[]> adjacentCellsMap = new Dictionary<int, int[]>()
         {
             {5,  new int[] {1, 2, 6,10,9,4}},
             {6,  new int[] { 2, 3,7,11,10,5}},
@@ -31,10 +31,17 @@ namespace LR1_AI_cs.Properties
 
         public IList<Cell> getAdjacentCells(int pos)
         {
-            if (adjacentCells.ContainsKey(pos))
+            if (adjacentCellsMap.ContainsKey(pos))
             {
-                var adjacentPostions = adjacentCells[pos];
-                return initialState.Where(cell => adjacentPostions.Contains(cell.position)).ToList();
+                var adjacentPostions = adjacentCellsMap[pos];
+                List<Cell> adjacentCells = new List<Cell>();
+                foreach (var postion in adjacentPostions)
+                {
+                    //костыль с нумерацией
+                    adjacentCells.Add(this._cells[postion-1]);
+                }
+
+                return adjacentCells;
             }
             else return new List<Cell>();
         }
