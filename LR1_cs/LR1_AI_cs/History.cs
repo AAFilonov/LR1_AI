@@ -1,4 +1,5 @@
 using System.Collections.Generic;
+using System.Linq;
 using LR1_AI_cs.Properties;
 
 namespace LR1_AI_cs
@@ -11,6 +12,10 @@ namespace LR1_AI_cs
           {
               return _states[index];
           }
+          public State getLastState()
+          {
+              return _states.Last();
+          }
           public void addState(State stateToAdd)
           {
               _states.Add(new State(stateToAdd));
@@ -20,9 +25,18 @@ namespace LR1_AI_cs
               return _states.Count-1;
           }
 
+          public void reverse()
+          {
+              _states.Reverse();
+          }
           public void reset()
           {
               _states.Clear();
+          }
+
+          public bool isEmpty()
+          {
+              return getHistoryDepth() == -1;
           }
     }
 }

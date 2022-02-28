@@ -7,24 +7,25 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using LR1_AI_cs.ai;
 using LR1_AI_cs.Properties;
 
 namespace LR1_AI_cs
 {
     public partial class Form1 : Form
     {
-        private readonly Board _board;
+        private readonly Board _board = new Board();
         private readonly Dictionary<int, PictureBox> _fieldPictureBoxes = new Dictionary<int, PictureBox>();
         private readonly Dictionary<int, PictureBox> _targetPictureBoxes = new Dictionary<int, PictureBox>();
         private GameState _gameState = GameState.PREPARATION;
         private Cell.Color _selectedColor = Cell.Color.ORANGE;
         private int _stateIndex = 0;
         private History _history = new History();
+        private ISolutionFinder _solutionFinder = new InDepthSearchFinder();
 
         public Form1()
         {
             InitializeComponent();
-            _board = new Board(this);
             initPictureBoxes();
         }
 
@@ -71,13 +72,20 @@ namespace LR1_AI_cs
         private void doTurn(Cell updatedCell)
         {
             _board.rotateClockwise(updatedCell.position);
+            syncState(_board.currentState);
             _history.addState(_board.currentState);
             if (_board.isWin())
             {
-                updateGameStateLabel(GameState.SOLUTION);
-                _stateIndex = _history.getHistoryDepth();
-                numericUpDownHistory.Value = _stateIndex;
+                updateHistoryNumeric();
             }
+        }
+
+        private void updateHistoryNumeric()
+        {
+            updateGameStateLabel(GameState.SOLUTION);
+            syncState(_history.getLastState());
+            _stateIndex = _history.getHistoryDepth();
+            numericUpDownHistory.Value = _stateIndex;
         }
 
         private void pictureBoxTarget_Click(object sender, EventArgs e)
@@ -131,6 +139,7 @@ namespace LR1_AI_cs
             foreach (var bp in _fieldPictureBoxes.Values)
             {
                 chagePictureBoxColor(bp, Cell.Color.GRAY);
+                
             }
 
             foreach (var bp in _targetPictureBoxes.Values)
@@ -139,11 +148,18 @@ namespace LR1_AI_cs
             }
 
             _history.reset();
+            _stateIndex = 0;
+            numericUpDownHistory.Value = _stateIndex;
         }
 
-        private void buttonAutoStart_Click(object sender, EventArgs e)
+        private async void buttonAutoStart_Click(object sender, EventArgs e)
         {
+            //TODO костыль с асинхроном, сделать нормальное обновление
             updateGameStateLabel(GameState.AUTO);
+            _history = await _solutionFinder.findAsync(_board.currentState,_board.targetState);
+            string message = _history.isEmpty() ? "Нет решения" : "Решение найдено";
+            MessageBox.Show(message, "Поиск завершен");
+            updateHistoryNumeric();
         }
 
         private void buttonHistoryBack_Click(object sender, EventArgs e)
@@ -159,7 +175,7 @@ namespace LR1_AI_cs
 
         private void buttonHistoryForward_Click(object sender, EventArgs e)
         {
-            if (_gameState == GameState.SOLUTION&& _stateIndex < _history.getHistoryDepth())
+            if (_gameState == GameState.SOLUTION && _stateIndex < _history.getHistoryDepth())
             {
                 _stateIndex++;
                 numericUpDownHistory.Value = _stateIndex;

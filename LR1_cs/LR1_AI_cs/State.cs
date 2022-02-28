@@ -32,6 +32,7 @@ namespace LR1_AI_cs.Properties
 
         public List<Cell> _cells { get; set; } =deepCopy (initialState_cells);
         public State parent { get; set; } = null;
+       
 
         public State()
         {
@@ -61,6 +62,19 @@ namespace LR1_AI_cs.Properties
         {
             return cellsToCopy.Select(cell => new Cell(cell.type, cell.position, cell.color)).ToList();
         }
+
+        public bool Equals(State otherState)
+        {
+            bool isEqual = true;
+            for (int i = 0; i < 19; i++)
+            {
+                if (this._cells[i].color != otherState._cells[i].color)
+                    return false;
+            }
+            return true;
+        }
+        
+     
     }
    
     

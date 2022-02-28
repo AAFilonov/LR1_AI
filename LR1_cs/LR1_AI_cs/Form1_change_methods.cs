@@ -9,6 +9,7 @@ namespace LR1_AI_cs
     {
         private void chagePictureBoxColor(PictureBox pictureBox, Cell.Color newColor)
         {
+         
             var resources = new ComponentResourceManager(typeof(Form1));
             switch (newColor)
             {
