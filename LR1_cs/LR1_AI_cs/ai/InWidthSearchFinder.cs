@@ -11,7 +11,7 @@ namespace LR1_AI_cs.ai
         private int countClosed { get; set; }
         private int countOpen { get; set; }
 
-        public async Task<History> findAsync(State inititalState, State targetState)
+        public async Task<List<State>> findAsync(State inititalState, State targetState)
         {
             Queue<State> OpenQueue = new Queue<State>();
             Queue<State> CloseQueue = new Queue<State>();
@@ -30,7 +30,7 @@ namespace LR1_AI_cs.ai
                     .ToList().ForEach(state => OpenQueue.Enqueue(state));
             }
             //no solution, return empty history
-            return new History();
+            return new List<State>();
         }
 
 
@@ -50,21 +50,21 @@ namespace LR1_AI_cs.ai
             return childs;
         }
 
-        private History generateHistory(State currentState)
+        private List<State> generateHistory(State currentState)
         {
-            History solutionHistory = new History();
-            solutionHistory.addState(currentState);
+            List<State> solutionHistory = new List<State>();
+            solutionHistory.Add(currentState);
             while (currentState.parent != null)
             {
-                solutionHistory.addState(currentState.parent);
+                solutionHistory.Add(currentState.parent);
                 currentState = currentState.parent;
             }
 
-            solutionHistory.reverse();
+            solutionHistory.Reverse();
             return solutionHistory;
         }
 
-        public History find(State inititalState, State targetState)
+        public List<State> find(State inititalState, State targetState)
         {
             throw new System.NotImplementedException();
         }

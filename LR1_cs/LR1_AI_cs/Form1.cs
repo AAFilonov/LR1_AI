@@ -20,8 +20,8 @@ namespace LR1_AI_cs
         private GameState _gameState = GameState.PREPARATION;
         private Cell.Color _selectedColor = Cell.Color.ORANGE;
         private int _stateIndex = 0;
-        private History _history = new History();
-        private ISolutionFinder _solutionFinder = new InDepthSearchFinder();
+        private List<State> _history = new List<State>();
+        private ISolutionFinder _solutionFinder = new InWidthSearchFinder();
 
         public Form1()
         {
@@ -73,7 +73,7 @@ namespace LR1_AI_cs
         {
             _board.rotateClockwise(updatedCell.position);
             syncState(_board.currentState);
-            _history.addState(_board.currentState);
+            _history.Add(_board.currentState);
             if (_board.isWin())
             {
                 updateHistoryNumeric();
@@ -83,8 +83,8 @@ namespace LR1_AI_cs
         private void updateHistoryNumeric()
         {
             updateGameStateLabel(GameState.SOLUTION);
-            syncState(_history.getLastState());
-            _stateIndex = _history.getHistoryDepth();
+            syncState(_history.Last());
+            _stateIndex = _history.Count-1;
             numericUpDownHistory.Value = _stateIndex;
         }
 
@@ -129,7 +129,7 @@ namespace LR1_AI_cs
         private void buttonManualStart_Click(object sender, EventArgs e)
         {
             updateGameStateLabel(GameState.MANUAL);
-            _history.addState(_board.currentState);
+            _history.Add(_board.currentState);
         }
 
         private void buttonReset_Click(object sender, EventArgs e)
@@ -147,7 +147,7 @@ namespace LR1_AI_cs
                 chagePictureBoxColor(bp, Cell.Color.GRAY);
             }
 
-            _history.reset();
+            _history.Clear();
             _stateIndex = 0;
             numericUpDownHistory.Value = _stateIndex;
         }
@@ -157,7 +157,7 @@ namespace LR1_AI_cs
             //TODO костыль с асинхроном, сделать нормальное обновление
             updateGameStateLabel(GameState.AUTO);
             _history = await _solutionFinder.findAsync(_board.currentState,_board.targetState);
-            string message = _history.isEmpty() ? "Нет решения" : "Решение найдено";
+            string message = _history.Any() ? "Нет решения" : "Решение найдено";
             MessageBox.Show(message, "Поиск завершен");
             updateHistoryNumeric();
         }
@@ -168,18 +168,18 @@ namespace LR1_AI_cs
             {
                 _stateIndex--;
                 numericUpDownHistory.Value = _stateIndex;
-                _board.setCurrent(_history.getState(_stateIndex));
+                _board.setCurrent(_history[_stateIndex]);
                 syncState(_board.currentState);
             }
         }
 
         private void buttonHistoryForward_Click(object sender, EventArgs e)
         {
-            if (_gameState == GameState.SOLUTION && _stateIndex < _history.getHistoryDepth())
+            if (_gameState == GameState.SOLUTION && _stateIndex < _history.Count-1)
             {
                 _stateIndex++;
                 numericUpDownHistory.Value = _stateIndex;
-                _board.setCurrent(_history.getState(_stateIndex));
+                _board.setCurrent(_history[_stateIndex]);
                 syncState(_board.currentState);
             }
         }
