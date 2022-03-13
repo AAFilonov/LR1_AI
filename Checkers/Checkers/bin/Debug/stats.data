@@ -1,0 +1,12 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Stats>
+  <Player Name="Агент Смит" Student="Калевко В.В." StudentGroup="10ПО-2" Wins="14" Loses="20" Draws="2" />
+  <Player Name="Агент Браун" Student="Калевко В.В." StudentGroup="10ПО-2" Wins="15" Loses="15" Draws="5" />
+  <Player Name="Агент Джонс" Student="Калевко В.В." StudentGroup="10ПО-2" Wins="16" Loses="17" Draws="2" />
+  <Player Name="Агент Джексон" Student="Калевко В.В." StudentGroup="10ПО-2" Wins="13" Loses="15" Draws="2" />
+  <Player Name="Агент Эш" Student="Калевко В.В." StudentGroup="10ПО-2" Wins="19" Loses="14" Draws="1" />
+  <Player Name="Агент Грей" Student="Калевко В.В." StudentGroup="10ПО-2" Wins="13" Loses="12" Draws="5" />
+  <Player Name="Нео" Student="Калевко В.В." StudentGroup="10ПО-2" Wins="18" Loses="15" Draws="1" />
+  <Player Name="Морфеус" Student="Калевко В.В." StudentGroup="10ПО-2" Wins="0" Loses="0" Draws="0" />
+  <Player Name="Тринити" Student="Калевко В.В." StudentGroup="10ПО-2" Wins="0" Loses="0" Draws="0" />
+</Stats>

@@ -1,0 +1,115 @@
+C:\Users\admin\Documents\Visual Studio 2013\Projects\Checkers\Checkers\bin\Debug\Checkers.exe.config
+C:\Users\admin\Documents\Visual Studio 2013\Projects\Checkers\Checkers\bin\Debug\Checkers.exe
+C:\Users\admin\Documents\Visual Studio 2013\Projects\Checkers\Checkers\bin\Debug\Checkers.pdb
+C:\Users\admin\Documents\Visual Studio 2013\Projects\Checkers\Checkers\bin\Debug\AgentSmith.dll
+C:\Users\admin\Documents\Visual Studio 2013\Projects\Checkers\Checkers\bin\Debug\CheckersBase.dll
+C:\Users\admin\Documents\Visual Studio 2013\Projects\Checkers\Checkers\bin\Debug\CheckersRules.dll
+C:\Users\admin\Documents\Visual Studio 2013\Projects\Checkers\Checkers\bin\Debug\GalaSoft.MvvmLight.Extras.WPF45.dll
+C:\Users\admin\Documents\Visual Studio 2013\Projects\Checkers\Checkers\bin\Debug\GalaSoft.MvvmLight.WPF45.dll
+C:\Users\admin\Documents\Visual Studio 2013\Projects\Checkers\Checkers\bin\Debug\Microsoft.Practices.ServiceLocation.dll
+C:\Users\admin\Documents\Visual Studio 2013\Projects\Checkers\Checkers\bin\Debug\System.Windows.Interactivity.dll
+C:\Users\admin\Documents\Visual Studio 2013\Projects\Checkers\Checkers\bin\Debug\CheckersRules.pdb
+C:\Users\admin\Documents\Visual Studio 2013\Projects\Checkers\Checkers\bin\Debug\AgentSmith.pdb
+C:\Users\admin\Documents\Visual Studio 2013\Projects\Checkers\Checkers\bin\Debug\CheckersBase.pdb
+C:\Users\admin\Documents\Visual Studio 2013\Projects\Checkers\Checkers\bin\Debug\GalaSoft.MvvmLight.Extras.WPF45.pdb
+C:\Users\admin\Documents\Visual Studio 2013\Projects\Checkers\Checkers\bin\Debug\GalaSoft.MvvmLight.Extras.WPF45.xml
+C:\Users\admin\Documents\Visual Studio 2013\Projects\Checkers\Checkers\bin\Debug\GalaSoft.MvvmLight.WPF45.pdb
+C:\Users\admin\Documents\Visual Studio 2013\Projects\Checkers\Checkers\bin\Debug\GalaSoft.MvvmLight.WPF45.xml
+C:\Users\admin\Documents\Visual Studio 2013\Projects\Checkers\Checkers\bin\Debug\Microsoft.Practices.ServiceLocation.pdb
+C:\Users\admin\Documents\Visual Studio 2013\Projects\Checkers\Checkers\bin\Debug\Microsoft.Practices.ServiceLocation.xml
+C:\Users\admin\Documents\Visual Studio 2013\Projects\Checkers\Checkers\bin\Debug\de\System.Windows.Interactivity.resources.dll
+C:\Users\admin\Documents\Visual Studio 2013\Projects\Checkers\Checkers\bin\Debug\en\System.Windows.Interactivity.resources.dll
+C:\Users\admin\Documents\Visual Studio 2013\Projects\Checkers\Checkers\bin\Debug\es\System.Windows.Interactivity.resources.dll
+C:\Users\admin\Documents\Visual Studio 2013\Projects\Checkers\Checkers\bin\Debug\fr\System.Windows.Interactivity.resources.dll
+C:\Users\admin\Documents\Visual Studio 2013\Projects\Checkers\Checkers\bin\Debug\it\System.Windows.Interactivity.resources.dll
+C:\Users\admin\Documents\Visual Studio 2013\Projects\Checkers\Checkers\bin\Debug\ja\System.Windows.Interactivity.resources.dll
+C:\Users\admin\Documents\Visual Studio 2013\Projects\Checkers\Checkers\bin\Debug\ko\System.Windows.Interactivity.resources.dll
+C:\Users\admin\Documents\Visual Studio 2013\Projects\Checkers\Checkers\bin\Debug\ru\System.Windows.Interactivity.resources.dll
+C:\Users\admin\Documents\Visual Studio 2013\Projects\Checkers\Checkers\bin\Debug\zh-Hans\System.Windows.Interactivity.resources.dll
+C:\Users\admin\Documents\Visual Studio 2013\Projects\Checkers\Checkers\bin\Debug\zh-Hant\System.Windows.Interactivity.resources.dll
+C:\Users\admin\Documents\Visual Studio 2013\Projects\Checkers\Checkers\obj\Debug\Checkers.csprojResolveAssemblyReference.cache
+C:\Users\admin\Documents\Visual Studio 2013\Projects\Checkers\Checkers\obj\Debug\Views\Checker.baml
+C:\Users\admin\Documents\Visual Studio 2013\Projects\Checkers\Checkers\obj\Debug\Views\PlayerUserControl.baml
+C:\Users\admin\Documents\Visual Studio 2013\Projects\Checkers\Checkers\obj\Debug\Views\SettingsWindow.baml
+C:\Users\admin\Documents\Visual Studio 2013\Projects\Checkers\Checkers\obj\Debug\Views\Checker.g.cs
+C:\Users\admin\Documents\Visual Studio 2013\Projects\Checkers\Checkers\obj\Debug\Views\ChessBoard.g.cs
+C:\Users\admin\Documents\Visual Studio 2013\Projects\Checkers\Checkers\obj\Debug\Views\HistoryView.g.cs
+C:\Users\admin\Documents\Visual Studio 2013\Projects\Checkers\Checkers\obj\Debug\Views\MainWindow.g.cs
+C:\Users\admin\Documents\Visual Studio 2013\Projects\Checkers\Checkers\obj\Debug\Views\PlayerSelectWindow.g.cs
+C:\Users\admin\Documents\Visual Studio 2013\Projects\Checkers\Checkers\obj\Debug\Views\PlayerUserControl.g.cs
+C:\Users\admin\Documents\Visual Studio 2013\Projects\Checkers\Checkers\obj\Debug\Views\SettingsWindow.g.cs
+C:\Users\admin\Documents\Visual Studio 2013\Projects\Checkers\Checkers\obj\Debug\Views\TournamentSettignsWindow.g.cs
+C:\Users\admin\Documents\Visual Studio 2013\Projects\Checkers\Checkers\obj\Debug\Views\TournamentWindow.g.cs
+C:\Users\admin\Documents\Visual Studio 2013\Projects\Checkers\Checkers\obj\Debug\Views\App.g.cs
+C:\Users\admin\Documents\Visual Studio 2013\Projects\Checkers\Checkers\obj\Debug\GeneratedInternalTypeHelper.g.cs
+C:\Users\admin\Documents\Visual Studio 2013\Projects\Checkers\Checkers\obj\Debug\Checkers_MarkupCompile.cache
+C:\Users\admin\Documents\Visual Studio 2013\Projects\Checkers\Checkers\obj\Debug\Checkers_MarkupCompile.lref
+C:\Users\admin\Documents\Visual Studio 2013\Projects\Checkers\Checkers\obj\Debug\Views\ChessBoard.baml
+C:\Users\admin\Documents\Visual Studio 2013\Projects\Checkers\Checkers\obj\Debug\Views\HistoryView.baml
+C:\Users\admin\Documents\Visual Studio 2013\Projects\Checkers\Checkers\obj\Debug\Views\MainWindow.baml
+C:\Users\admin\Documents\Visual Studio 2013\Projects\Checkers\Checkers\obj\Debug\Views\PlayerSelectWindow.baml
+C:\Users\admin\Documents\Visual Studio 2013\Projects\Checkers\Checkers\obj\Debug\Views\TournamentSettignsWindow.baml
+C:\Users\admin\Documents\Visual Studio 2013\Projects\Checkers\Checkers\obj\Debug\Views\TournamentWindow.baml
+C:\Users\admin\Documents\Visual Studio 2013\Projects\Checkers\Checkers\obj\Debug\Checkers.g.resources
+C:\Users\admin\Documents\Visual Studio 2013\Projects\Checkers\Checkers\obj\Debug\Checkers.Properties.Resources.resources
+C:\Users\admin\Documents\Visual Studio 2013\Projects\Checkers\Checkers\obj\Debug\Checkers.csproj.GenerateResource.Cache
+C:\Users\admin\Documents\Visual Studio 2013\Projects\Checkers\Checkers\obj\Debug\Checkers.exe
+C:\Users\admin\Documents\Visual Studio 2013\Projects\Checkers\Checkers\obj\Debug\Checkers.pdb
+C:\Users\filon\source\Checkers\Checkers\bin\Debug\Checkers.exe.config
+C:\Users\filon\source\Checkers\Checkers\bin\Debug\Checkers.exe
+C:\Users\filon\source\Checkers\Checkers\bin\Debug\Checkers.pdb
+C:\Users\filon\source\Checkers\Checkers\bin\Debug\AgentSmith.dll
+C:\Users\filon\source\Checkers\Checkers\bin\Debug\CheckersBase.dll
+C:\Users\filon\source\Checkers\Checkers\bin\Debug\CheckersRules.dll
+C:\Users\filon\source\Checkers\Checkers\bin\Debug\GalaSoft.MvvmLight.Extras.WPF45.dll
+C:\Users\filon\source\Checkers\Checkers\bin\Debug\GalaSoft.MvvmLight.WPF45.dll
+C:\Users\filon\source\Checkers\Checkers\bin\Debug\Microsoft.Practices.ServiceLocation.dll
+C:\Users\filon\source\Checkers\Checkers\bin\Debug\CheckersRules.pdb
+C:\Users\filon\source\Checkers\Checkers\bin\Debug\AgentSmith.pdb
+C:\Users\filon\source\Checkers\Checkers\bin\Debug\CheckersBase.pdb
+C:\Users\filon\source\Checkers\Checkers\bin\Debug\GalaSoft.MvvmLight.Extras.WPF45.pdb
+C:\Users\filon\source\Checkers\Checkers\bin\Debug\GalaSoft.MvvmLight.Extras.WPF45.xml
+C:\Users\filon\source\Checkers\Checkers\bin\Debug\GalaSoft.MvvmLight.WPF45.pdb
+C:\Users\filon\source\Checkers\Checkers\bin\Debug\GalaSoft.MvvmLight.WPF45.xml
+C:\Users\filon\source\Checkers\Checkers\bin\Debug\Microsoft.Practices.ServiceLocation.pdb
+C:\Users\filon\source\Checkers\Checkers\bin\Debug\Microsoft.Practices.ServiceLocation.xml
+C:\Users\filon\source\Checkers\Checkers\bin\Debug\de\System.Windows.Interactivity.resources.dll
+C:\Users\filon\source\Checkers\Checkers\bin\Debug\en\System.Windows.Interactivity.resources.dll
+C:\Users\filon\source\Checkers\Checkers\bin\Debug\es\System.Windows.Interactivity.resources.dll
+C:\Users\filon\source\Checkers\Checkers\bin\Debug\fr\System.Windows.Interactivity.resources.dll
+C:\Users\filon\source\Checkers\Checkers\bin\Debug\it\System.Windows.Interactivity.resources.dll
+C:\Users\filon\source\Checkers\Checkers\bin\Debug\ja\System.Windows.Interactivity.resources.dll
+C:\Users\filon\source\Checkers\Checkers\bin\Debug\ko\System.Windows.Interactivity.resources.dll
+C:\Users\filon\source\Checkers\Checkers\bin\Debug\ru\System.Windows.Interactivity.resources.dll
+C:\Users\filon\source\Checkers\Checkers\bin\Debug\zh-Hans\System.Windows.Interactivity.resources.dll
+C:\Users\filon\source\Checkers\Checkers\bin\Debug\zh-Hant\System.Windows.Interactivity.resources.dll
+C:\Users\filon\source\Checkers\Checkers\obj\Debug\Checkers.csprojAssemblyReference.cache
+C:\Users\filon\source\Checkers\Checkers\obj\Debug\Views\Checker.baml
+C:\Users\filon\source\Checkers\Checkers\obj\Debug\Views\PlayerUserControl.baml
+C:\Users\filon\source\Checkers\Checkers\obj\Debug\Views\SettingsWindow.baml
+C:\Users\filon\source\Checkers\Checkers\obj\Debug\Views\Checker.g.cs
+C:\Users\filon\source\Checkers\Checkers\obj\Debug\Views\ChessBoard.g.cs
+C:\Users\filon\source\Checkers\Checkers\obj\Debug\Views\HistoryView.g.cs
+C:\Users\filon\source\Checkers\Checkers\obj\Debug\Views\MainWindow.g.cs
+C:\Users\filon\source\Checkers\Checkers\obj\Debug\Views\PlayerSelectWindow.g.cs
+C:\Users\filon\source\Checkers\Checkers\obj\Debug\Views\PlayerUserControl.g.cs
+C:\Users\filon\source\Checkers\Checkers\obj\Debug\Views\SettingsWindow.g.cs
+C:\Users\filon\source\Checkers\Checkers\obj\Debug\Views\TournamentSettignsWindow.g.cs
+C:\Users\filon\source\Checkers\Checkers\obj\Debug\Views\TournamentWindow.g.cs
+C:\Users\filon\source\Checkers\Checkers\obj\Debug\Views\App.g.cs
+C:\Users\filon\source\Checkers\Checkers\obj\Debug\GeneratedInternalTypeHelper.g.cs
+C:\Users\filon\source\Checkers\Checkers\obj\Debug\Checkers_MarkupCompile.cache
+C:\Users\filon\source\Checkers\Checkers\obj\Debug\Checkers_MarkupCompile.lref
+C:\Users\filon\source\Checkers\Checkers\obj\Debug\Views\ChessBoard.baml
+C:\Users\filon\source\Checkers\Checkers\obj\Debug\Views\HistoryView.baml
+C:\Users\filon\source\Checkers\Checkers\obj\Debug\Views\MainWindow.baml
+C:\Users\filon\source\Checkers\Checkers\obj\Debug\Views\PlayerSelectWindow.baml
+C:\Users\filon\source\Checkers\Checkers\obj\Debug\Views\TournamentSettignsWindow.baml
+C:\Users\filon\source\Checkers\Checkers\obj\Debug\Views\TournamentWindow.baml
+C:\Users\filon\source\Checkers\Checkers\obj\Debug\Checkers.g.resources
+C:\Users\filon\source\Checkers\Checkers\obj\Debug\Checkers.Properties.Resources.resources
+C:\Users\filon\source\Checkers\Checkers\obj\Debug\Checkers.csproj.GenerateResource.cache
+C:\Users\filon\source\Checkers\Checkers\obj\Debug\Checkers.csproj.CoreCompileInputs.cache
+C:\Users\filon\source\Checkers\Checkers\obj\Debug\Checkers.csproj.CopyComplete
+C:\Users\filon\source\Checkers\Checkers\obj\Debug\Checkers.exe
+C:\Users\filon\source\Checkers\Checkers\obj\Debug\Checkers.pdb

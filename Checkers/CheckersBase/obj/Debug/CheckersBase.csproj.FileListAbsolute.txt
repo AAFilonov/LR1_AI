@@ -1,0 +1,10 @@
+C:\Users\admin\Documents\Visual Studio 2013\Projects\Checkers\CheckersBase\bin\Debug\CheckersBase.dll
+C:\Users\admin\Documents\Visual Studio 2013\Projects\Checkers\CheckersBase\bin\Debug\CheckersBase.pdb
+C:\Users\admin\Documents\Visual Studio 2013\Projects\Checkers\CheckersBase\obj\Debug\CheckersBase.dll
+C:\Users\admin\Documents\Visual Studio 2013\Projects\Checkers\CheckersBase\obj\Debug\CheckersBase.pdb
+C:\Users\filon\source\Checkers\CheckersBase\bin\Debug\CheckersBase.dll
+C:\Users\filon\source\Checkers\CheckersBase\bin\Debug\CheckersBase.pdb
+C:\Users\filon\source\Checkers\CheckersBase\obj\Debug\CheckersBase.csprojAssemblyReference.cache
+C:\Users\filon\source\Checkers\CheckersBase\obj\Debug\CheckersBase.csproj.CoreCompileInputs.cache
+C:\Users\filon\source\Checkers\CheckersBase\obj\Debug\CheckersBase.dll
+C:\Users\filon\source\Checkers\CheckersBase\obj\Debug\CheckersBase.pdb

@@ -1,0 +1,7 @@
+C:\Users\admin\Documents\Visual Studio 2013\Projects\Checkers\CheckersRules\bin\Release\CheckersRules.dll
+C:\Users\admin\Documents\Visual Studio 2013\Projects\Checkers\CheckersRules\bin\Release\CheckersRules.pdb
+C:\Users\admin\Documents\Visual Studio 2013\Projects\Checkers\CheckersRules\bin\Release\CheckersBase.dll
+C:\Users\admin\Documents\Visual Studio 2013\Projects\Checkers\CheckersRules\bin\Release\CheckersBase.pdb
+C:\Users\admin\Documents\Visual Studio 2013\Projects\Checkers\CheckersRules\obj\Release\CheckersRules.csprojResolveAssemblyReference.cache
+C:\Users\admin\Documents\Visual Studio 2013\Projects\Checkers\CheckersRules\obj\Release\CheckersRules.dll
+C:\Users\admin\Documents\Visual Studio 2013\Projects\Checkers\CheckersRules\obj\Release\CheckersRules.pdb

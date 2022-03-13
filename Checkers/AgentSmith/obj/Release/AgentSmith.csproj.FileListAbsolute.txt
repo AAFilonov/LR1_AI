@@ -1,0 +1,9 @@
+C:\Users\admin\Documents\Visual Studio 2013\Projects\Checkers\AgentSmith\bin\Release\AgentSmith.dll
+C:\Users\admin\Documents\Visual Studio 2013\Projects\Checkers\AgentSmith\bin\Release\AgentSmith.pdb
+C:\Users\admin\Documents\Visual Studio 2013\Projects\Checkers\AgentSmith\bin\Release\CheckersBase.dll
+C:\Users\admin\Documents\Visual Studio 2013\Projects\Checkers\AgentSmith\bin\Release\CheckersRules.dll
+C:\Users\admin\Documents\Visual Studio 2013\Projects\Checkers\AgentSmith\bin\Release\CheckersBase.pdb
+C:\Users\admin\Documents\Visual Studio 2013\Projects\Checkers\AgentSmith\bin\Release\CheckersRules.pdb
+C:\Users\admin\Documents\Visual Studio 2013\Projects\Checkers\AgentSmith\obj\Release\AgentSmith.csprojResolveAssemblyReference.cache
+C:\Users\admin\Documents\Visual Studio 2013\Projects\Checkers\AgentSmith\obj\Release\AgentSmith.dll
+C:\Users\admin\Documents\Visual Studio 2013\Projects\Checkers\AgentSmith\obj\Release\AgentSmith.pdb

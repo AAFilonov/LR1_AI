@@ -1,0 +1,4 @@
+C:\Users\admin\Documents\Visual Studio 2013\Projects\Checkers\CheckersBase\bin\Release\CheckersBase.dll
+C:\Users\admin\Documents\Visual Studio 2013\Projects\Checkers\CheckersBase\bin\Release\CheckersBase.pdb
+C:\Users\admin\Documents\Visual Studio 2013\Projects\Checkers\CheckersBase\obj\Release\CheckersBase.dll
+C:\Users\admin\Documents\Visual Studio 2013\Projects\Checkers\CheckersBase\obj\Release\CheckersBase.pdb

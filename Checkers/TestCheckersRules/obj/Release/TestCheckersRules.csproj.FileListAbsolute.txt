@@ -1,0 +1,11 @@
+C:\Users\admin\Documents\Visual Studio 2013\Projects\Checkers\TestCheckersRules\bin\Release\TestCheckersRules.dll
+C:\Users\admin\Documents\Visual Studio 2013\Projects\Checkers\TestCheckersRules\bin\Release\TestCheckersRules.pdb
+C:\Users\admin\Documents\Visual Studio 2013\Projects\Checkers\TestCheckersRules\bin\Release\CheckersBase.dll
+C:\Users\admin\Documents\Visual Studio 2013\Projects\Checkers\TestCheckersRules\bin\Release\CheckersRules.dll
+C:\Users\admin\Documents\Visual Studio 2013\Projects\Checkers\TestCheckersRules\bin\Release\CheckersRules.pdb
+C:\Users\admin\Documents\Visual Studio 2013\Projects\Checkers\TestCheckersRules\bin\Release\CheckersBase.pdb
+C:\Users\admin\Documents\Visual Studio 2013\Projects\Checkers\TestCheckersRules\obj\Release\TestCheckersRules.csprojResolveAssemblyReference.cache
+C:\Users\admin\Documents\Visual Studio 2013\Projects\Checkers\TestCheckersRules\obj\Release\TestCheckersRules.dll
+C:\Users\admin\Documents\Visual Studio 2013\Projects\Checkers\TestCheckersRules\obj\Release\TestCheckersRules.pdb
+C:\Users\admin\Documents\Visual Studio 2013\Projects\Checkers\TestCheckersRules\bin\Release\AgentSmith.dll
+C:\Users\admin\Documents\Visual Studio 2013\Projects\Checkers\TestCheckersRules\bin\Release\AgentSmith.pdb
