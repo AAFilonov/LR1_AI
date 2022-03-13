@@ -21,7 +21,7 @@ namespace LR1_AI_cs
         private Cell.Color _selectedColor = Cell.Color.ORANGE;
         private int _stateIndex = 0;
         private List<State> _history = new List<State>();
-        private ISolutionFinder _solutionFinder = new InWidthSearchFinder();
+        private ISolutionFinder _solutionFinder = new ManhattenHeuristicSearcher();
 
         public Form1()
         {
