@@ -150,8 +150,8 @@
             this.pictureBox1.TabIndex = 0;
             this.pictureBox1.TabStop = false;
             this.pictureBox1.Tag = "field;1;gray";
-            this.pictureBox1.Click += new System.EventHandler(this.pictureBoxField_Click);
-            this.pictureBox1.DoubleClick += new System.EventHandler(this.pictureBoxField_Click);
+            this.pictureBox1.Click += new System.EventHandler(this.pictureBoxField_leftClick);
+            this.pictureBox1.DoubleClick += new System.EventHandler(this.pictureBoxField_leftClick);
             // 
             // panel1
             // 
@@ -191,7 +191,7 @@
             this.pictureBox17.TabIndex = 20;
             this.pictureBox17.TabStop = false;
             this.pictureBox17.Tag = "field;19;gray";
-            this.pictureBox17.Click += new System.EventHandler(this.pictureBoxField_Click);
+            this.pictureBox17.Click += new System.EventHandler(this.pictureBoxField_leftClick);
             // 
             // pictureBox18
             // 
@@ -204,7 +204,7 @@
             this.pictureBox18.TabIndex = 19;
             this.pictureBox18.TabStop = false;
             this.pictureBox18.Tag = "field;18;gray";
-            this.pictureBox18.Click += new System.EventHandler(this.pictureBoxField_Click);
+            this.pictureBox18.Click += new System.EventHandler(this.pictureBoxField_leftClick);
             // 
             // pictureBox19
             // 
@@ -217,7 +217,7 @@
             this.pictureBox19.TabIndex = 18;
             this.pictureBox19.TabStop = false;
             this.pictureBox19.Tag = "field;17;gray";
-            this.pictureBox19.Click += new System.EventHandler(this.pictureBoxField_Click);
+            this.pictureBox19.Click += new System.EventHandler(this.pictureBoxField_leftClick);
             // 
             // pictureBox9
             // 
@@ -230,7 +230,7 @@
             this.pictureBox9.TabIndex = 17;
             this.pictureBox9.TabStop = false;
             this.pictureBox9.Tag = "field;16;gray";
-            this.pictureBox9.Click += new System.EventHandler(this.pictureBoxField_Click);
+            this.pictureBox9.Click += new System.EventHandler(this.pictureBoxField_leftClick);
             // 
             // pictureBox10
             // 
@@ -243,7 +243,7 @@
             this.pictureBox10.TabIndex = 16;
             this.pictureBox10.TabStop = false;
             this.pictureBox10.Tag = "field;15;gray";
-            this.pictureBox10.Click += new System.EventHandler(this.pictureBoxField_Click);
+            this.pictureBox10.Click += new System.EventHandler(this.pictureBoxField_leftClick);
             // 
             // pictureBox15
             // 
@@ -256,7 +256,7 @@
             this.pictureBox15.TabIndex = 15;
             this.pictureBox15.TabStop = false;
             this.pictureBox15.Tag = "field;14;gray";
-            this.pictureBox15.Click += new System.EventHandler(this.pictureBoxField_Click);
+            this.pictureBox15.Click += new System.EventHandler(this.pictureBoxField_leftClick);
             // 
             // pictureBox16
             // 
@@ -269,7 +269,7 @@
             this.pictureBox16.TabIndex = 14;
             this.pictureBox16.TabStop = false;
             this.pictureBox16.Tag = "field;13;gray";
-            this.pictureBox16.Click += new System.EventHandler(this.pictureBoxField_Click);
+            this.pictureBox16.Click += new System.EventHandler(this.pictureBoxField_leftClick);
             // 
             // pictureBox8
             // 
@@ -282,7 +282,7 @@
             this.pictureBox8.TabIndex = 13;
             this.pictureBox8.TabStop = false;
             this.pictureBox8.Tag = "field;8;gray";
-            this.pictureBox8.Click += new System.EventHandler(this.pictureBoxField_Click);
+            this.pictureBox8.Click += new System.EventHandler(this.pictureBoxField_leftClick);
             // 
             // pictureBox11
             // 
@@ -295,7 +295,7 @@
             this.pictureBox11.TabIndex = 10;
             this.pictureBox11.TabStop = false;
             this.pictureBox11.Tag = "field;12;gray";
-            this.pictureBox11.Click += new System.EventHandler(this.pictureBoxField_Click);
+            this.pictureBox11.Click += new System.EventHandler(this.pictureBoxField_leftClick);
             // 
             // pictureBox12
             // 
@@ -308,7 +308,7 @@
             this.pictureBox12.TabIndex = 9;
             this.pictureBox12.TabStop = false;
             this.pictureBox12.Tag = "field;11;gray";
-            this.pictureBox12.Click += new System.EventHandler(this.pictureBoxField_Click);
+            this.pictureBox12.Click += new System.EventHandler(this.pictureBoxField_leftClick);
             // 
             // pictureBox13
             // 
@@ -321,7 +321,7 @@
             this.pictureBox13.TabIndex = 8;
             this.pictureBox13.TabStop = false;
             this.pictureBox13.Tag = "field;10;gray";
-            this.pictureBox13.Click += new System.EventHandler(this.pictureBoxField_Click);
+            this.pictureBox13.Click += new System.EventHandler(this.pictureBoxField_leftClick);
             // 
             // pictureBox14
             // 
@@ -334,7 +334,7 @@
             this.pictureBox14.TabIndex = 7;
             this.pictureBox14.TabStop = false;
             this.pictureBox14.Tag = "field;9;gray";
-            this.pictureBox14.Click += new System.EventHandler(this.pictureBoxField_Click);
+            this.pictureBox14.Click += new System.EventHandler(this.pictureBoxField_leftClick);
             // 
             // pictureBox7
             // 
@@ -347,7 +347,7 @@
             this.pictureBox7.TabIndex = 6;
             this.pictureBox7.TabStop = false;
             this.pictureBox7.Tag = "field;7;gray";
-            this.pictureBox7.Click += new System.EventHandler(this.pictureBoxField_Click);
+            this.pictureBox7.Click += new System.EventHandler(this.pictureBoxField_leftClick);
             // 
             // pictureBox4
             // 
@@ -360,7 +360,7 @@
             this.pictureBox4.TabIndex = 5;
             this.pictureBox4.TabStop = false;
             this.pictureBox4.Tag = "field;6;gray";
-            this.pictureBox4.Click += new System.EventHandler(this.pictureBoxField_Click);
+            this.pictureBox4.Click += new System.EventHandler(this.pictureBoxField_leftClick);
             // 
             // pictureBox5
             // 
@@ -373,7 +373,7 @@
             this.pictureBox5.TabIndex = 4;
             this.pictureBox5.TabStop = false;
             this.pictureBox5.Tag = "field;5;gray";
-            this.pictureBox5.Click += new System.EventHandler(this.pictureBoxField_Click);
+            this.pictureBox5.Click += new System.EventHandler(this.pictureBoxField_leftClick);
             // 
             // pictureBox6
             // 
@@ -386,7 +386,7 @@
             this.pictureBox6.TabIndex = 3;
             this.pictureBox6.TabStop = false;
             this.pictureBox6.Tag = "field;4;gray";
-            this.pictureBox6.Click += new System.EventHandler(this.pictureBoxField_Click);
+            this.pictureBox6.Click += new System.EventHandler(this.pictureBoxField_leftClick);
             // 
             // pictureBox3
             // 
@@ -399,7 +399,7 @@
             this.pictureBox3.TabIndex = 2;
             this.pictureBox3.TabStop = false;
             this.pictureBox3.Tag = "field;3;gray";
-            this.pictureBox3.Click += new System.EventHandler(this.pictureBoxField_Click);
+            this.pictureBox3.Click += new System.EventHandler(this.pictureBoxField_leftClick);
             // 
             // pictureBox2
             // 
@@ -412,7 +412,7 @@
             this.pictureBox2.TabIndex = 1;
             this.pictureBox2.TabStop = false;
             this.pictureBox2.Tag = "field;2;gray";
-            this.pictureBox2.Click += new System.EventHandler(this.pictureBoxField_Click);
+            this.pictureBox2.Click += new System.EventHandler(this.pictureBoxField_leftClick);
             // 
             // labelFieldState
             // 

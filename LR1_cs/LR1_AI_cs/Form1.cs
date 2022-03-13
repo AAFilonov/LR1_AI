@@ -54,8 +54,10 @@ namespace LR1_AI_cs
         }
 
 
-        private void pictureBoxField_Click(object sender, EventArgs e)
+        private void pictureBoxField_leftClick(object sender, EventArgs e)
         {
+            MouseEventArgs me = (MouseEventArgs) e;
+
             PictureBox pictureBox = (PictureBox) sender;
             Cell updatedCell = CellParser.parseCell(pictureBox);
             if (_gameState == GameState.PREPARATION)
@@ -65,13 +67,28 @@ namespace LR1_AI_cs
             }
             else if (_gameState == GameState.MANUAL)
             {
-                doTurn(updatedCell);
+                if (me.Button == MouseButtons.Left)
+                    doClockwiseTurn(updatedCell);
+                if (me.Button == MouseButtons.Right)
+                    doCounterClockwiseTurn(updatedCell);
             }
         }
 
-        private void doTurn(Cell updatedCell)
+
+        private void doClockwiseTurn(Cell updatedCell)
         {
-            _board.rotateClockwise(updatedCell.position);
+            _board.moveClockwise(updatedCell.position);
+            syncState(_board.currentState);
+            _history.Add(_board.currentState);
+            if (_board.isWin())
+            {
+                updateHistoryNumeric();
+            }
+        }
+
+        private void doCounterClockwiseTurn(Cell updatedCell)
+        {
+            _board.moveCounterclockwise(updatedCell.position);
             syncState(_board.currentState);
             _history.Add(_board.currentState);
             if (_board.isWin())
@@ -83,7 +100,9 @@ namespace LR1_AI_cs
         private void updateHistoryNumeric()
         {
             updateGameStateLabel(GameState.SOLUTION);
-            syncState(_history.Last());
+            
+            _board.setCurrent(_history.Last());
+            syncState(_board.currentState);
             _stateIndex = _history.Count-1;
             numericUpDownHistory.Value = _stateIndex;
         }
@@ -139,7 +158,6 @@ namespace LR1_AI_cs
             foreach (var bp in _fieldPictureBoxes.Values)
             {
                 chagePictureBoxColor(bp, Cell.Color.GRAY);
-                
             }
 
             foreach (var bp in _targetPictureBoxes.Values)
@@ -156,8 +174,9 @@ namespace LR1_AI_cs
         {
             //TODO костыль с асинхроном, сделать нормальное обновление
             updateGameStateLabel(GameState.AUTO);
-            _history = await _solutionFinder.findAsync(_board.currentState,_board.targetState);
-            string message = _history.Any() ? "Нет решения" : "Решение найдено";
+            var history = _solutionFinder.findMoves(_board.currentState, _board.targetState);
+            _history = history;
+            string message = _history.Any() ?  "Решение найдено":"Нет решения" ;
             MessageBox.Show(message, "Поиск завершен");
             updateHistoryNumeric();
         }
@@ -175,7 +194,7 @@ namespace LR1_AI_cs
 
         private void buttonHistoryForward_Click(object sender, EventArgs e)
         {
-            if (_gameState == GameState.SOLUTION && _stateIndex < _history.Count-1)
+            if (_gameState == GameState.SOLUTION && _stateIndex < _history.Count - 1)
             {
                 _stateIndex++;
                 numericUpDownHistory.Value = _stateIndex;
@@ -186,7 +205,8 @@ namespace LR1_AI_cs
 
         private void syncState(State state)
         {
-            state._cells.ToList().ForEach(cell => sync(cell));
+            foreach (var cell in state._cells)
+                sync(cell);
         }
     }
 

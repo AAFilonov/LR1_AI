@@ -5,7 +5,7 @@ namespace LR1_AI_cs
     public class Game
     {
         private const int INDEX_OF_LAST_ADJACENT_CELL = 5;
-       public State rotateClockwise(State oldState, int pos)
+       public static State rotateClockwise(State oldState, int pos)
         {
             var newState = new State(oldState);
             var adjacentCells = newState.getAdjacentCells(pos);
@@ -22,5 +22,23 @@ namespace LR1_AI_cs
             newState.parent = oldState;
             return newState;
         }
+       
+       public static State rotateCounterclockwise(State oldState, int pos)
+       {
+           var newState = new State(oldState);
+           var adjacentCells = newState.getAdjacentCells(pos);
+           var temp = adjacentCells[INDEX_OF_LAST_ADJACENT_CELL].color;
+
+           for (int i = INDEX_OF_LAST_ADJACENT_CELL-1; i >= 0; i--)
+           {
+               var tempColor = adjacentCells[i].color;
+               adjacentCells[i].color = temp;
+               temp = tempColor;
+           }
+
+           adjacentCells[INDEX_OF_LAST_ADJACENT_CELL].color = temp;
+           newState.parent = oldState;
+           return newState;
+       }
     }
 }

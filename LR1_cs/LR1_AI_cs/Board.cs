@@ -8,21 +8,26 @@ namespace LR1_AI_cs.Properties
     public class Board
     {
         
-        private Game _game { get; } = new Game();
 
         public State targetState { get; set; } = new State();
         public State currentState { get; set; } = new State();
 
 
 
-        public void rotateClockwise(int pos)
+        public void moveClockwise(int pos)
         {
           
-            State updatedState = _game.rotateClockwise(currentState, pos);
+            State updatedState = Game.rotateClockwise(currentState, pos);
             setCurrent(updatedState);
             
         }
-
+        public void moveCounterclockwise(int pos)
+        {
+          
+            State updatedState = Game.rotateCounterclockwise(currentState, pos);
+            setCurrent(updatedState);
+            
+        }
       
 
 
@@ -39,7 +44,7 @@ namespace LR1_AI_cs.Properties
 
         public void setCurrent(State newState)
         {
-            currentState = newState;
+            currentState = new State(newState);
         }
     }
 }
