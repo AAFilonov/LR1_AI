@@ -1,26 +1,13 @@
-﻿//#define DEBUG_OUTPUT
-
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
 using CheckersBase;
 using CheckersBase.BrainBase;
 using CheckersRules;
-using System;
-using System.Collections.Generic;
-using System.Diagnostics;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
-
-namespace Matrix
+namespace AgentMessiah
 {
-    static class RulesWrapper
-    {
-        public static List<Motion> FindAllMotions(Board board, bool isWhite)
-        {
-            return Rules.FindValidMotions(board, isWhite).GetAllMotions();
-        }
-    }
-
+    
     #region Utils
 
     static class Utils
@@ -89,6 +76,15 @@ namespace Matrix
     }
 
     #endregion
+     static class RulesWrapper
+    {
+        public static List<Motion> FindAllMotions(Board board, bool isWhite)
+        {
+            return Rules.FindValidMotions(board, isWhite).GetAllMotions();
+        }
+    }
+
+    
 
     sealed class CheckersIntelligence
     {
@@ -298,75 +294,9 @@ namespace Matrix
             return validator.NoValidMotions();
         }
     }
-
-    #region Agents
-
-    [BrainInfo(BrainName = "Агент Смит", Student = "Матрица", StudentGroup = "/dev/null")]
-    public class AgentSmith : BrainBase
-    {
-        CheckersIntelligence intell = new CheckersIntelligence(8, 3, 1, 6);
-        public override Motion FindMotion(Board board, bool isWhite)
-        {
-            return intell.FindMotion(board, isWhite);
-        }
-    }
-
-    [BrainInfo(BrainName = "Агент Браун", Student = "Матрица", StudentGroup = "/dev/null")]
-    public class AgentBrown : BrainBase
-    {
-        CheckersIntelligence intell = new CheckersIntelligence(6, 3, 1, 5);
-        public override Motion FindMotion(Board board, bool isWhite)
-        {
-            return intell.FindMotion(board, isWhite);
-        }
-    }
-
-    [BrainInfo(BrainName = "Агент Джонс", Student = "Матрица", StudentGroup = "/dev/null")]
-    public class AgentJones : BrainBase
-    {
-        CheckersIntelligence intell = new CheckersIntelligence(5, 3, 1, 4);
-        public override Motion FindMotion(Board board, bool isWhite)
-        {
-            return intell.FindMotion(board, isWhite);
-        }
-    }
-
-    [BrainInfo(BrainName = "Агент Джексон", Student = "Матрица", StudentGroup = "/dev/null")]
-    public class AgentJackson : BrainBase
-    {
-        CheckersIntelligence intell = new CheckersIntelligence(6, 4, 1, 6);
-        public override Motion FindMotion(Board board, bool isWhite)
-        {
-            return intell.FindMotion(board, isWhite);
-        }
-    }
-
-    [BrainInfo(BrainName = "Агент Эш", Student = "Матрица", StudentGroup = "/dev/null")]
-    public class AgentAsh : BrainBase
-    {
-        CheckersIntelligence intell = new CheckersIntelligence(8, 1, 1, 5);
-        public override Motion FindMotion(Board board, bool isWhite)
-        {
-            return intell.FindMotion(board, isWhite);
-        }
-    }
-
-    [BrainInfo(BrainName = "Агент Грей", Student = "Матрица", StudentGroup = "/dev/null")]
-    public class AgentGray : BrainBase
-    {
-        CheckersIntelligence intell = new CheckersIntelligence(4, 2, 1, 5);
-        public override Motion FindMotion(Board board, bool isWhite)
-        {
-            return intell.FindMotion(board, isWhite);
-        }
-    }
-
-    #endregion
-
-    #region Humans
-
-    [BrainInfo(BrainName = "Нео", Student = "Матрица", StudentGroup = "/dev/null")]
-    public class Neo : BrainBase
+    
+    [BrainInfo(BrainName = "Мессия", Student = "Студенческий совет", StudentGroup = "18-ПРИ")]
+    public class Messia : BrainBase
     {
         CheckersIntelligence intell = new CheckersIntelligence(9, 3, 1, 7);
         public override Motion FindMotion(Board board, bool isWhite)
@@ -374,29 +304,4 @@ namespace Matrix
             return intell.FindMotion(board, isWhite);
         }
     }
-
-    [BrainInfo(BrainName = "Морфеус", Student = "Матрица", StudentGroup = "/dev/null")]
-    public class Morfeus : BrainBase
-    {
-        CheckersIntelligence intell = new CheckersIntelligence(4, 2, 1, 7);
-        public override Motion FindMotion(Board board, bool isWhite)
-        {
-            return intell.FindMotion(board, isWhite);
-        }
-    }
-
-    [BrainInfo(BrainName = "Тринити", Student = "Матрица", StudentGroup = "/dev/null")]
-    public class Trinity : BrainBase
-    {
-        CheckersIntelligence intell = new CheckersIntelligence(6, 4, 1, 7);
-        public override Motion FindMotion(Board board, bool isWhite)
-        {
-            return intell.FindMotion(board, isWhite);
-        }
-    }
-
-    #endregion 
-
-    
-   
 }

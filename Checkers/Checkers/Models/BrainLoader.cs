@@ -46,7 +46,9 @@ namespace Checkers.Models
                 return ret;
             }
 
-            var dllFiles = Directory.GetFiles(folder, "*.dll", SearchOption.AllDirectories);
+            List<String> dllFiles = new List<string>();
+            dllFiles.AddRange( Directory.GetFiles(folder, "AgentSmith.dll", SearchOption.AllDirectories));
+            dllFiles.Add("AgentMessiah.dll");
             foreach (var dllFile in dllFiles)
             {
                 var brains = LoadBrainsFromDll(dllFile);
