@@ -39,6 +39,8 @@
     </ItemGroup>
     <ItemGroup>
         <Compile Include="AgentMessiah.cs" />
+        <Compile Include="BaseCheckersAI.cs" />
+        <Compile Include="MyCheckersAI.cs" />
         <Compile Include="Properties\AssemblyInfo.cs" />
     </ItemGroup>
     <ItemGroup>
