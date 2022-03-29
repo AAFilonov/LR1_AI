@@ -7,12 +7,12 @@ using CheckersRules;
 
 namespace AgentMessiah
 {
-
     public abstract class BaseCheckersAI
     {
-        protected bool _isWhiteTurn;
-        public abstract int Eval(Board board);
-        public abstract bool IsMaximumDeep(int D);
+        protected bool IsWhiteTurn;
+        protected abstract int Eval(Board board);
+        protected abstract bool IsMaximumDeep(int D);
+
         protected int MaxValue(Board board, int alpha, int beta, int deep)
         {
             if (IsMaximumDeep(deep))
@@ -20,15 +20,16 @@ namespace AgentMessiah
 
             int v = int.MinValue;
 
-            var motions = RulesWrapper.FindAllMotions(board, !_isWhiteTurn);
+            var motions = RulesWrapper.FindAllMotions(board, !IsWhiteTurn);
 
             if (motions.Count == 0)
                 return Eval(board);
 
             foreach (var mnt in motions.ToList())
             {
-                Utils.LogMotion(0, mnt, deep + 1);
-                v = Math.Max(v, MinValue(Rules.ApplyMotion(board, mnt, !_isWhiteTurn), alpha, beta, deep + 1));
+                //Найти максимальное из минимальных значений оценок хода
+                v = Math.Max(v, MinValue(Rules.ApplyMotion(board, mnt, !IsWhiteTurn), alpha, beta, deep + 1));
+                //разница
                 if (v >= beta)
                     return v;
                 alpha = Math.Max(alpha, v);
@@ -44,14 +45,17 @@ namespace AgentMessiah
 
             int v = int.MaxValue;
 
-            var motions = RulesWrapper.FindAllMotions(board, _isWhiteTurn);
+            var motions = RulesWrapper.FindAllMotions(board, IsWhiteTurn);
 
             if (motions.Count == 0) return Eval(board);
 
             foreach (var mnt in motions.ToList())
             {
-                Utils.LogMotion(0, mnt, deep + 1);
-                v = Math.Min(v, MaxValue(Rules.ApplyMotion(board, mnt, _isWhiteTurn), alpha, beta, deep + 1));
+                //Найти минимальное из максимальных значений оценок хода
+                v = Math.Min(
+                    v,
+                    MaxValue(Rules.ApplyMotion(board, mnt, IsWhiteTurn), alpha, beta, deep + 1));
+                //разница
                 if (v <= alpha)
                     return v;
                 beta = Math.Min(beta, v);
@@ -59,11 +63,31 @@ namespace AgentMessiah
 
             return v;
         }
-        
+
         protected static bool NoValidMotions(Board board, bool isWhite)
         {
             var validator = Rules.FindValidMotions(board, isWhite);
             return validator.NoValidMotions();
+        }
+
+        public class PlayersCheckers
+        {
+            public int Kings { get; set; }
+            public int Pawns { get; set; }
+        }
+
+        public class CheckersInfo
+        {
+            public PlayersCheckers Black { get; set; }
+            public PlayersCheckers White { get; set; }
+
+            public int freeCells { get; set; } = 0;
+
+            public CheckersInfo()
+            {
+                Black = new PlayersCheckers();
+                White = new PlayersCheckers();
+            }
         }
     }
 }

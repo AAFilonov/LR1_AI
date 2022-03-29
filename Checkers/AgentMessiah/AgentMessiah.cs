@@ -7,7 +7,6 @@ using CheckersRules;
 
 namespace AgentMessiah
 {
-    
     #region Utils
 
     static class Utils
@@ -22,7 +21,6 @@ namespace AgentMessiah
         public static void LogMotion(int value, Motion mtn, int deep)
         {
 #if DEBUG_OUTPUT
-
             string format = "{0," + deep * 3 + "}  ";
             Debug.Write(String.Format(format, value));
 
@@ -34,7 +32,6 @@ namespace AgentMessiah
         public static void LogMotion(Motion mtn)
         {
 #if DEBUG_OUTPUT
-
             for (int i = 0; i < mtn.Moves.Count; i++)
             {
                 var m = mtn.Moves[i];
@@ -49,7 +46,6 @@ namespace AgentMessiah
         public static void LogBoard(Board board)
         {
 #if DEBUG_OUTPUT
-
             Debug.WriteLine("Board: ");
 
             for (int i = 0; i < 8; i++)
@@ -76,7 +72,8 @@ namespace AgentMessiah
     }
 
     #endregion
-     static class RulesWrapper
+
+    static class RulesWrapper
     {
         public static List<Motion> FindAllMotions(Board board, bool isWhite)
         {
@@ -84,16 +81,58 @@ namespace AgentMessiah
         }
     }
 
-     
-    
-    [BrainInfo(BrainName = "Мессия", Student = "Студенческий совет", StudentGroup = "18-ПРИ")]
-    public class Messia : BrainBase
+
+    [BrainInfo(BrainName = "Doctor", Student = "Rhodes island", StudentGroup = "18-ПРИ")]
+    public class Doctor : BrainBase
     {
-        MyCheckersAI intell = new MyCheckersAI(6, 1, 3, 2);
+        MyCheckersAI intell = new MyCheckersAI(5, 6, 3, 2, 2);
+
         public override Motion FindMotion(Board board, bool isWhite)
         {
             return intell.FindMotion(board, isWhite);
         }
     }
- 
+
+    [BrainInfo(BrainName = "Amia", Student = "Rhodes island", StudentGroup = "18-ПРИ")]
+    public class Amia : BrainBase
+    {
+        MyCheckersAI intell = new MyCheckersAI(4, 6, 3, 2, 1);
+
+        public override Motion FindMotion(Board board, bool isWhite)
+        {
+            return intell.FindMotion(board, isWhite);
+        }
+    }
+
+    [BrainInfo(BrainName = "Gavial", Student = "Rhodes island", StudentGroup = "18-ПРИ")]
+    public class Gavial : BrainBase
+    {
+        MyCheckersAI intell = new MyCheckersAI(5, 6, 3, 2, 2);
+
+        public override Motion FindMotion(Board board, bool isWhite)
+        {
+            return intell.FindMotion(board, isWhite);
+        }
+    }
+
+    [BrainInfo(BrainName = "Silence", Student = "Rhodes island", StudentGroup = "18-ПРИ")]
+    public class Silence : BrainBase
+    {
+        MyCheckersAI intell = new MyCheckersAI(4, 6, 3, 2, 1);
+
+        public override Motion FindMotion(Board board, bool isWhite)
+        {
+            return intell.FindMotion(board, isWhite);
+        }
+    }
+    [BrainInfo(BrainName = "Mudrock", Student = "Rhodes island", StudentGroup = "18-ПРИ")]
+    public class Mudrock : BrainBase
+    {
+        MyCheckersAI intell = new MyCheckersAI(5, 8, 5, 3, 1);
+
+        public override Motion FindMotion(Board board, bool isWhite)
+        {
+            return intell.FindMotion(board, isWhite);
+        }
+    }
 }
