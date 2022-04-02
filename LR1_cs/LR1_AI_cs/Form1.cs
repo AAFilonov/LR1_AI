@@ -208,6 +208,14 @@ namespace LR1_AI_cs
             foreach (var cell in state._cells)
                 sync(cell);
         }
+
+        private void buttonRndGenerate_Click(object sender, EventArgs e)
+        {
+            int depth = (int)numericUpDownDepth.Value;
+            State generatedState = StateRandomizer.generate(_board.targetState, depth);
+            _board.setCurrent(generatedState);
+            syncState(_board.currentState);
+        }
     }
 
 

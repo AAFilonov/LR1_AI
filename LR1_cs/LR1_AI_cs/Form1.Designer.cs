@@ -832,6 +832,7 @@
             this.button4.TabIndex = 47;
             this.button4.Text = "Сгенерировать";
             this.button4.UseVisualStyleBackColor = true;
+            this.button4.Click += new System.EventHandler(this.buttonRndGenerate_Click);
             // 
             // labelTargetState
             // 
