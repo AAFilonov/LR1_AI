@@ -1,0 +1,14 @@
+C:\Users\filon\source\2021-2022\AI\LR1_cs\TestProject2\bin\Debug\TestProject2.dll
+C:\Users\filon\source\2021-2022\AI\LR1_cs\TestProject2\bin\Debug\TestProject2.pdb
+C:\Users\filon\source\2021-2022\AI\LR1_cs\TestProject2\bin\Debug\LR1_AI_cs.exe
+C:\Users\filon\source\2021-2022\AI\LR1_cs\TestProject2\bin\Debug\nunit.framework.dll
+C:\Users\filon\source\2021-2022\AI\LR1_cs\TestProject2\bin\Debug\LR1_AI_cs.pdb
+C:\Users\filon\source\2021-2022\AI\LR1_cs\TestProject2\bin\Debug\LR1_AI_cs.exe.config
+C:\Users\filon\source\2021-2022\AI\LR1_cs\TestProject2\bin\Debug\nunit.framework.xml
+C:\Users\filon\source\2021-2022\AI\LR1_cs\TestProject2\obj\Debug\TestProject2.csprojAssemblyReference.cache
+C:\Users\filon\source\2021-2022\AI\LR1_cs\TestProject2\obj\Debug\TestProject2.csproj.CoreCompileInputs.cache
+C:\Users\filon\source\2021-2022\AI\LR1_cs\TestProject2\obj\Debug\TestProject2.csproj.CopyComplete
+C:\Users\filon\source\2021-2022\AI\LR1_cs\TestProject2\obj\Debug\TestProject2.dll
+C:\Users\filon\source\2021-2022\AI\LR1_cs\TestProject2\obj\Debug\TestProject2.pdb
+C:\Users\filon\source\2021-2022\AI\LR1_cs\TestProject2\bin\Debug\System.Data.SQLite.dll
+C:\Users\filon\source\2021-2022\AI\LR1_cs\TestProject2\bin\Debug\System.Data.SQLite.xml

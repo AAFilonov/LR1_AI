@@ -8,3 +8,16 @@ C:\Users\filon\RiderProjects\LR1_AI\LR1_cs\LR1_AI_cs\LR1_AI_cs\obj\Debug\LR1_AI_
 C:\Users\filon\RiderProjects\LR1_AI\LR1_cs\LR1_AI_cs\LR1_AI_cs\obj\Debug\LR1_AI_cs.csproj.CoreCompileInputs.cache
 C:\Users\filon\RiderProjects\LR1_AI\LR1_cs\LR1_AI_cs\LR1_AI_cs\obj\Debug\LR1_AI_cs.exe
 C:\Users\filon\RiderProjects\LR1_AI\LR1_cs\LR1_AI_cs\LR1_AI_cs\obj\Debug\LR1_AI_cs.pdb
+C:\Users\filon\source\2021-2022\AI\LR1_cs\LR1_AI_cs\bin\Debug\LR1_AI_cs.exe.config
+C:\Users\filon\source\2021-2022\AI\LR1_cs\LR1_AI_cs\bin\Debug\LR1_AI_cs.exe
+C:\Users\filon\source\2021-2022\AI\LR1_cs\LR1_AI_cs\bin\Debug\LR1_AI_cs.pdb
+C:\Users\filon\source\2021-2022\AI\LR1_cs\LR1_AI_cs\obj\Debug\LR1_AI_cs.csprojAssemblyReference.cache
+C:\Users\filon\source\2021-2022\AI\LR1_cs\LR1_AI_cs\obj\Debug\LR1_AI_cs.Form1.resources
+C:\Users\filon\source\2021-2022\AI\LR1_cs\LR1_AI_cs\obj\Debug\LR1_AI_cs.Properties.Resources.resources
+C:\Users\filon\source\2021-2022\AI\LR1_cs\LR1_AI_cs\obj\Debug\LR1_AI_cs.csproj.GenerateResource.cache
+C:\Users\filon\source\2021-2022\AI\LR1_cs\LR1_AI_cs\obj\Debug\LR1_AI_cs.csproj.CoreCompileInputs.cache
+C:\Users\filon\source\2021-2022\AI\LR1_cs\LR1_AI_cs\obj\Debug\LR1_AI_cs.exe
+C:\Users\filon\source\2021-2022\AI\LR1_cs\LR1_AI_cs\obj\Debug\LR1_AI_cs.pdb
+C:\Users\filon\source\2021-2022\AI\LR1_cs\LR1_AI_cs\bin\Debug\System.Data.SQLite.dll
+C:\Users\filon\source\2021-2022\AI\LR1_cs\LR1_AI_cs\bin\Debug\System.Data.SQLite.xml
+C:\Users\filon\source\2021-2022\AI\LR1_cs\LR1_AI_cs\obj\Debug\LR1_AI_cs.csproj.CopyComplete
