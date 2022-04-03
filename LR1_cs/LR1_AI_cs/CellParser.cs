@@ -32,6 +32,32 @@ namespace LR1_AI_cs
                 case "orange":
                     return Cell.Color.ORANGE;
                     break;
+                case "undef":
+                    return Cell.Color.UNDEF;
+                    break;
+                default:
+                    throw new ArgumentOutOfRangeException(nameof(strToParse), strToParse, null);
+            }
+        }
+        public static Cell.Color parseColorByChar(string strToParse)
+        {
+            switch (strToParse)
+            {
+                case "g":
+                    return Cell.Color.GRAY;
+                    break;
+                case "r":
+                    return Cell.Color.RED;
+                    break;
+                case "b":
+                    return Cell.Color.BLUE;
+                    break;
+                case "o":
+                    return Cell.Color.ORANGE;
+                    break;
+                case "*":
+                    return Cell.Color.UNDEF;
+                    break;
                 default:
                     throw new ArgumentOutOfRangeException(nameof(strToParse), strToParse, null);
             }
@@ -51,6 +77,35 @@ namespace LR1_AI_cs
                     break;
                 case Cell.Color.ORANGE:
                     return "orange";
+                    break; 
+                case Cell.Color.UNDEF:
+                    return "undef";
+                    break;
+                default:
+                    throw new ArgumentOutOfRangeException(nameof(color), color, null);
+            }
+
+            ;
+        }
+        
+        public  static String colorToChar(Cell.Color color)
+        {
+            switch (color)
+            {
+                case Cell.Color.GRAY:
+                    return "g";
+                    break;
+                case Cell.Color.RED:
+                    return "r";
+                    break;
+                case Cell.Color.BLUE:
+                    return "b";
+                    break;
+                case Cell.Color.ORANGE:
+                    return "o";
+                    break; 
+                case Cell.Color.UNDEF:
+                    return "*";
                     break;
                 default:
                     throw new ArgumentOutOfRangeException(nameof(color), color, null);

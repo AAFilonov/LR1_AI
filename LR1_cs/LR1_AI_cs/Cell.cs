@@ -10,7 +10,8 @@ namespace LR1_AI_cs
             GRAY,
             RED,
             BLUE,
-            ORANGE
+            ORANGE,
+            UNDEF
             
         }   
 

@@ -15,7 +15,7 @@ namespace LR1_AI_cs.ai
 
         
 
-        protected List<State> generateHistory(State currentState)
+        public static List<State> generateHistory(State currentState)
         {
             List<State> solutionHistory = new List<State>();
             solutionHistory.Add(currentState);
