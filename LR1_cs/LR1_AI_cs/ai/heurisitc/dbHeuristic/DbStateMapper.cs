@@ -33,12 +33,18 @@ namespace LR1_AI_cs.ai.heurisitc.dbHeuristic
                     OpenQueue.Enqueue(child);
                 }
 
-                depth = AbstractSolutionSearcher.generateHistory(currentState).Count-1;
+                depth = AbstractSolutionSearcher.generateHistory(currentState).Count - 1;
                 _db.save(currentState, targetState, depth);
                 CloseQueue.Enqueue(currentState);
             }
 
             Console.WriteLine("Open: " + OpenQueue.Count + " Closed: " + CloseQueue.Count);
+        }
+
+        public void mapPartial(State targetState, int maxDepth)
+        {
+            map(TargetEstimator.prepareLowerPart(targetState), maxDepth);
+            map(TargetEstimator.prepareUpperPart(targetState), maxDepth);
         }
     }
 }

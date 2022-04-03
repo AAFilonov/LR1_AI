@@ -6,11 +6,11 @@ using LR1_AI_cs.Properties;
 
 namespace LR1_AI_cs.ai
 {
-    public class HammingHeuristicSearcher : AbstractSolutionSearcher
+    public class DbHeuristicSearcher : AbstractSolutionSearcher
     {
         private int countClosed { get; set; }
         private int countOpen { get; set; }
-        private IHeuristicEstimator _heuristicEstimator = new HammingEstimator();
+        private IHeuristicEstimator _heuristicEstimator = new DbEstimator();
 
         public override List<State> findMoves(State inititalState, State targetState)
         {

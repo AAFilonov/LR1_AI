@@ -90,6 +90,7 @@
             this.buttonHistoryForward = new System.Windows.Forms.Button();
             this.numericUpDownHistory = new System.Windows.Forms.NumericUpDown();
             this.labelHistory = new System.Windows.Forms.Label();
+            this.comboBoxSearcher = new System.Windows.Forms.ComboBox();
             ((System.ComponentModel.ISupportInitialize) (this.pictureBox1)).BeginInit();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize) (this.pictureBox17)).BeginInit();
@@ -785,7 +786,7 @@
             // 
             // button3
             // 
-            this.button3.Location = new System.Drawing.Point(473, 84);
+            this.button3.Location = new System.Drawing.Point(473, 108);
             this.button3.Margin = new System.Windows.Forms.Padding(2);
             this.button3.Name = "button3";
             this.button3.Size = new System.Drawing.Size(118, 24);
@@ -796,7 +797,7 @@
             // 
             // numericUpDownDepth
             // 
-            this.numericUpDownDepth.Location = new System.Drawing.Point(529, 145);
+            this.numericUpDownDepth.Location = new System.Drawing.Point(529, 169);
             this.numericUpDownDepth.Margin = new System.Windows.Forms.Padding(2);
             this.numericUpDownDepth.Maximum = new decimal(new int[] {100000, 0, 0, 0});
             this.numericUpDownDepth.Minimum = new decimal(new int[] {1, 0, 0, 0});
@@ -807,7 +808,7 @@
             // 
             // label1
             // 
-            this.label1.Location = new System.Drawing.Point(473, 119);
+            this.label1.Location = new System.Drawing.Point(473, 143);
             this.label1.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(111, 19);
@@ -816,7 +817,7 @@
             // 
             // label2
             // 
-            this.label2.Location = new System.Drawing.Point(473, 145);
+            this.label2.Location = new System.Drawing.Point(473, 169);
             this.label2.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(51, 38);
@@ -825,7 +826,7 @@
             // 
             // button4
             // 
-            this.button4.Location = new System.Drawing.Point(473, 185);
+            this.button4.Location = new System.Drawing.Point(473, 209);
             this.button4.Margin = new System.Windows.Forms.Padding(2);
             this.button4.Name = "button4";
             this.button4.Size = new System.Drawing.Size(118, 31);
@@ -863,7 +864,7 @@
             // 
             // buttonHistoryBack
             // 
-            this.buttonHistoryBack.Location = new System.Drawing.Point(473, 260);
+            this.buttonHistoryBack.Location = new System.Drawing.Point(473, 284);
             this.buttonHistoryBack.Margin = new System.Windows.Forms.Padding(2);
             this.buttonHistoryBack.Name = "buttonHistoryBack";
             this.buttonHistoryBack.Size = new System.Drawing.Size(20, 21);
@@ -874,7 +875,7 @@
             // 
             // buttonHistoryForward
             // 
-            this.buttonHistoryForward.Location = new System.Drawing.Point(557, 259);
+            this.buttonHistoryForward.Location = new System.Drawing.Point(557, 283);
             this.buttonHistoryForward.Margin = new System.Windows.Forms.Padding(2);
             this.buttonHistoryForward.Name = "buttonHistoryForward";
             this.buttonHistoryForward.Size = new System.Drawing.Size(20, 21);
@@ -885,7 +886,7 @@
             // 
             // numericUpDownHistory
             // 
-            this.numericUpDownHistory.Location = new System.Drawing.Point(497, 260);
+            this.numericUpDownHistory.Location = new System.Drawing.Point(497, 284);
             this.numericUpDownHistory.Margin = new System.Windows.Forms.Padding(2);
             this.numericUpDownHistory.Maximum = new decimal(new int[] {100000, 0, 0, 0});
             this.numericUpDownHistory.Name = "numericUpDownHistory";
@@ -895,18 +896,28 @@
             // 
             // labelHistory
             // 
-            this.labelHistory.Location = new System.Drawing.Point(473, 238);
+            this.labelHistory.Location = new System.Drawing.Point(473, 262);
             this.labelHistory.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.labelHistory.Name = "labelHistory";
             this.labelHistory.Size = new System.Drawing.Size(125, 19);
             this.labelHistory.TabIndex = 55;
             this.labelHistory.Text = "История";
             // 
+            // comboBoxSearcher
+            // 
+            this.comboBoxSearcher.FormattingEnabled = true;
+            this.comboBoxSearcher.Location = new System.Drawing.Point(473, 84);
+            this.comboBoxSearcher.Name = "comboBoxSearcher";
+            this.comboBoxSearcher.Size = new System.Drawing.Size(118, 21);
+            this.comboBoxSearcher.TabIndex = 56;
+            this.comboBoxSearcher.SelectedIndexChanged += new System.EventHandler(this.comboBoxSearcher_SelectedIndexChanged);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(600, 366);
+            this.Controls.Add(this.comboBoxSearcher);
             this.Controls.Add(this.labelHistory);
             this.Controls.Add(this.numericUpDownHistory);
             this.Controls.Add(this.buttonHistoryForward);
@@ -977,6 +988,8 @@
             ((System.ComponentModel.ISupportInitialize) (this.numericUpDownHistory)).EndInit();
             this.ResumeLayout(false);
         }
+
+        private System.Windows.Forms.ComboBox comboBoxSearcher;
 
         private System.Windows.Forms.NumericUpDown numericUpDownHistory;
 

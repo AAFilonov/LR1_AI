@@ -18,15 +18,17 @@ namespace LR1_AI_cs.ai.heurisitc.dbHeuristic
 
         public int estimate(State initialState)
         {
-            int lowerPartScore = get(prepareLowerPart(initialState), prepareLowerPart( targetState));
+            int lowerPartScore = get(prepareLowerPart(initialState), prepareLowerPart(targetState));
             int upperPartScore = get(prepareUpperPart(initialState), prepareUpperPart(targetState));
             return lowerPartScore + upperPartScore;
         }
+
         public int get(State templateState, State targetState)
         {
             var results = _db.findByTargetAndTemplate(Parser.toString(targetState), Parser.toString(templateState));
             if (results.Count == 0)
-                throw new Exception("Target state " + Parser.toString(targetState) + " was not mapped!");
+                throw new Exception("Target state " + Parser.toString(targetState) + " was not mapped in " +
+                                    _db.DB_FILE_NAME + "!");
             return results.Select(tuple => tuple.Item3).Max();
         }
 

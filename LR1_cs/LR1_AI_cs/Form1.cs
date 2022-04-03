@@ -21,12 +21,29 @@ namespace LR1_AI_cs
         private Cell.Color _selectedColor = Cell.Color.ORANGE;
         private int _stateIndex = 0;
         private List<State> _history = new List<State>();
-        private ISolutionFinder _solutionFinder = new ManhattenHeuristicSearcher();
+
+        private List<ISolutionFinder> searchers = new List<ISolutionFinder>();
+        private ISolutionFinder _solutionFinder;
 
         public Form1()
         {
             InitializeComponent();
             initPictureBoxes();
+            searchers.Add(new InDepthSearchSearcher());
+            searchers.Add(new InWidthSearcher());
+            searchers.Add(new ManhattenHeuristicSearcher());
+            searchers.Add(new HammingHeuristicSearcher());
+            searchers.Add(new DbHeuristicSearcher());
+
+            _solutionFinder = searchers[0];
+
+            comboBoxSearcher.Items.Add("In depth search");
+            comboBoxSearcher.Items.Add("In width search");
+            comboBoxSearcher.Items.Add("Manhatten H search");
+            comboBoxSearcher.Items.Add("Hamming Hsearch");
+            comboBoxSearcher.Items.Add("DB search");
+
+            comboBoxSearcher.SelectedIndex = 0;
         }
 
         private void initPictureBoxes()
@@ -100,10 +117,10 @@ namespace LR1_AI_cs
         private void updateHistoryNumeric()
         {
             updateGameStateLabel(GameState.SOLUTION);
-            
+
             _board.setCurrent(_history.Last());
             syncState(_board.currentState);
-            _stateIndex = _history.Count-1;
+            _stateIndex = _history.Count - 1;
             numericUpDownHistory.Value = _stateIndex;
         }
 
@@ -176,7 +193,7 @@ namespace LR1_AI_cs
             updateGameStateLabel(GameState.AUTO);
             var history = _solutionFinder.findMoves(_board.currentState, _board.targetState);
             _history = history;
-            string message = _history.Any() ?  "Решение найдено":"Нет решения" ;
+            string message = _history.Any() ? "Решение найдено" : "Нет решения";
             MessageBox.Show(message, "Поиск завершен");
             updateHistoryNumeric();
         }
@@ -211,10 +228,16 @@ namespace LR1_AI_cs
 
         private void buttonRndGenerate_Click(object sender, EventArgs e)
         {
-            int depth = (int)numericUpDownDepth.Value;
+            int depth = (int) numericUpDownDepth.Value;
             State generatedState = StateRandomizer.generate(_board.targetState, depth);
             _board.setCurrent(generatedState);
             syncState(_board.currentState);
+        }
+
+        private void comboBoxSearcher_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            int selectedIndex = comboBoxSearcher.SelectedIndex;
+            this._solutionFinder = searchers[selectedIndex];
         }
     }
 

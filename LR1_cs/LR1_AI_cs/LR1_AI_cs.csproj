@@ -51,12 +51,14 @@
     </ItemGroup>
     <ItemGroup>
         <Compile Include="ai\AbstractSolutionSearcher.cs" />
-        <Compile Include="ai\heurisitc\dbHeuristic\DbEstimator.cs" />
+        <Compile Include="ai\heurisitc\DbEstimator.cs" />
+        <Compile Include="ai\heurisitc\dbHeuristic\TargetEstimator.cs" />
         <Compile Include="ai\heurisitc\dbHeuristic\DB.cs" />
         <Compile Include="ai\heurisitc\dbHeuristic\DbStateMapper.cs" />
         <Compile Include="ai\heurisitc\dbHeuristic\Parser.cs" />
         <Compile Include="ai\IHeuristicEstimator.cs" />
         <Compile Include="ai\ISolutionSearcher.cs" />
+        <Compile Include="ai\searchers\DbHeuristicSearcher.cs" />
         <Compile Include="ai\searchers\HammingHeuristicSearcher.cs" />
         <Compile Include="ai\searchers\InDepthSearchSearcher.cs" />
         <Compile Include="ai\searchers\InWidthSearcher.cs" />

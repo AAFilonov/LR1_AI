@@ -10,7 +10,7 @@ namespace LR1_AI_cs.ai.heurisitc.dbHeuristic
     public class DB
     {
         //private string DB_FILE_NAME = "AI_DB.db";
-        private string DB_FILE_NAME = "AI_DB_TEST.db";
+        public string DB_FILE_NAME ;
         private string CURRENT_PATH = Directory.GetCurrentDirectory();
         private string TABLE_NAME = "templates_table";
 

@@ -39,11 +39,11 @@ namespace TestProject2
             DB db_for_test = new DB("AI_DB_TEST.db");
             DbStateMapper mapper = new DbStateMapper(db_for_test);
 
-            mapper.map(TargetEstimator.prepareLowerPart(_possibleTargets[0]), 20);
-            mapper.map(TargetEstimator.prepareUpperPart(_possibleTargets[0]), 20);
+           mapper.map(TargetEstimator.prepareLowerPart(_possibleTargets[0]), 20);
+           mapper.map(TargetEstimator.prepareUpperPart(_possibleTargets[0]), 20);
 
-            mapper.map(TargetEstimator.prepareLowerPart(_possibleTargets[1]), 20);
-            mapper.map(TargetEstimator.prepareUpperPart(_possibleTargets[1]), 20);
+           mapper.map(TargetEstimator.prepareLowerPart(_possibleTargets[1]), 20);
+           mapper.map(TargetEstimator.prepareUpperPart(_possibleTargets[1]), 20);
 
             mapper.map(TargetEstimator.prepareLowerPart(_possibleTargets[2]), 20);
             mapper.map(TargetEstimator.prepareUpperPart(_possibleTargets[2]), 20);
