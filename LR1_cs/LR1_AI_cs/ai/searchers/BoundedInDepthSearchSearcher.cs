@@ -27,23 +27,32 @@ namespace LR1_AI_cs.ai
             {
                 iterations++;
                 State currentState = OpenQueue.Pop();
+
                 if (currentState.Equals(targetState))
                 {
                     updateStatisitcs(OpenQueue.Count, CloseQueue.Count, iterations);
                     return generateHistory(currentState);
                 }
-                  
+
+
+                CloseQueue.Enqueue(currentState);
                 if (depth >= maxDepth)
                 {
+                    depth = 0;
                     continue;
                 }
 
-                CloseQueue.Enqueue(currentState);
                 List<State> childStates = openState(currentState);
-                childStates.ToList().Where(
-                        state => !CloseQueue.Contains(state) && !OpenQueue.Contains(state)
-                    )
-                    .ToList().ForEach(state => OpenQueue.Push(state));
+                childStates.Reverse();
+     
+                foreach (var child in childStates)
+                {
+                    if (!Utils.containsValue(CloseQueue , child) &&
+                        !Utils.containsValue(OpenQueue, child))
+                    {
+                        OpenQueue.Push(child);
+                    }
+                }
                 depth++;
             }
 

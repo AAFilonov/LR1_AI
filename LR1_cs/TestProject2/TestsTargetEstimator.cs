@@ -19,12 +19,12 @@ namespace TestProject2
             targetState._cells[0].color = Cell.Color.BLUE;
             targetState._cells[18].color = Cell.Color.BLUE;
 
-            _targetEstimator = new TargetEstimator(targetState, new DB("TEST_DB.db"));
+            _targetEstimator = new TargetEstimator(targetState, new DB("AI_DB_TEST2.db"));
         }
         [OneTimeTearDown] public void Cleanup()
         { /* ... */ }
 
-        [Test]
+       // [Test]
         public void testPartialTargetStates2()
         {
             State stateToTest = new State();
@@ -35,7 +35,7 @@ namespace TestProject2
             Assert.AreEqual(expectedScore, actualScore);
         }
 
-        [Test]
+        //[Test]
         public void testPartialTargetStates4()
         {
             State stateToTest = new State();

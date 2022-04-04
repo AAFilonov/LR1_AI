@@ -10,7 +10,7 @@ namespace LR1_AI_cs.ai
     {
         public override List<State> findMoves(State inititalState, State targetState)
         {
-            int depth = 2;
+            int depth = 1;
             while (true)
             {
                 BoundedInDepthSearchSearcher searcher = new BoundedInDepthSearchSearcher(depth);

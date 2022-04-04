@@ -36,7 +36,7 @@ namespace TestProject2
         [Test]
         public void test2PosMapping()
         {
-            DB db_for_test = new DB("AI_DB_TEST.db");
+            DB db_for_test = new DB("AI_DB_TEST2.db");
             DbStateMapper mapper = new DbStateMapper(db_for_test);
 
            mapper.map(TargetEstimator.prepareLowerPart(_possibleTargets[0]), 20);

@@ -7,15 +7,18 @@ namespace LR1_AI_cs.ai
 {
     public class DbEstimator : IHeuristicEstimator
     {
-        private const string DB_NAME = "AI_DB_PROD.db";
-        private DB _db = new DB(DB_NAME);
+        private string DB_NAME;
+        private DB _db;
         private List<TargetEstimator> _estimators = new List<TargetEstimator>();
         private readonly List<State> _possibleTargets = new List<State>();
 
         private DbStateMapper stateMapper;
 
-        public DbEstimator()
+        public DbEstimator(string dbName)
         {
+            DB_NAME = dbName;
+            _db = new DB(DB_NAME);
+            
             stateMapper = new DbStateMapper(_db);
             State state2Pos = new State();
             state2Pos._cells[0].color = Cell.Color.BLUE;

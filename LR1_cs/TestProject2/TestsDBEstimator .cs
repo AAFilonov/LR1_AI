@@ -18,7 +18,7 @@ namespace TestProject2
         [OneTimeSetUp]
         public void GlobalSetup()
         {
-            estimator = new DbEstimator();
+            estimator = new DbEstimator("AI_DB_TEST2.db");
 
 
             State state2Pos = new State();
@@ -79,17 +79,6 @@ namespace TestProject2
             int actualScore = estimator.estimate(stateToTest, _possibleTargets[1]);
             Assert.AreEqual(expectedScore, actualScore);
         }
-
-        [Test]
-        public void testPartialTargetStates3Score6()
-        {
-            State stateToTest = new State();
-            stateToTest._cells[1].color = Cell.Color.BLUE; //to 3
-            stateToTest._cells[12].color = Cell.Color.BLUE; //to 6
-            stateToTest._cells[15].color = Cell.Color.BLUE; //to 17
-            int expectedScore = 6;
-            int actualScore = estimator.estimate(stateToTest, _possibleTargets[1]);
-            Assert.AreEqual(expectedScore, actualScore);
-        }
+        
     }
 }

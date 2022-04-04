@@ -10,7 +10,7 @@ namespace LR1_AI_cs.ai
     {
         private int countClosed { get; set; }
         private int countOpen { get; set; }
-        private IHeuristicEstimator _heuristicEstimator = new DbEstimator();
+        private IHeuristicEstimator _heuristicEstimator = new DbEstimator("AI_DB_PROD.db");
 
         public override List<State> findMoves(State inititalState, State targetState)
         {
