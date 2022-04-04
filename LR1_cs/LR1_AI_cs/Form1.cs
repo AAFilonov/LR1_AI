@@ -34,15 +34,16 @@ namespace LR1_AI_cs
             searchers.Add(new ManhattenHeuristicSearcher());
             searchers.Add(new HammingHeuristicSearcher());
             searchers.Add(new DbHeuristicSearcher());
-
+            searchers.Add(new BoundedManhattenHeuristicSearcher(1000));
             _solutionFinder = searchers[0];
-
+            
             comboBoxSearcher.Items.Add("In depth search");
             comboBoxSearcher.Items.Add("In width search");
             comboBoxSearcher.Items.Add("Manhatten H search");
             comboBoxSearcher.Items.Add("Hamming Hsearch");
             comboBoxSearcher.Items.Add("DB search");
-
+            comboBoxSearcher.Items.Add("Bounded Manhatten H search");
+            
             comboBoxSearcher.SelectedIndex = 0;
         }
 
@@ -146,7 +147,6 @@ namespace LR1_AI_cs
         public void sync(Cell cell)
         {
             PictureBox pbToSync = null;
-            //TODO поправить костыль - нумерация в борде начинается с 1 
             if (cell.type == Cell.Type.FIELD)
             {
                 pbToSync = _fieldPictureBoxes[cell.position];

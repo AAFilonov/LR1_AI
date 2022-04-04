@@ -22,6 +22,7 @@ namespace LR1_AI_cs.ai
                 _heuristicEstimator.estimate(inititalState, targetState),
                 inititalState
             ));
+            var iterations = 0;
             while (OpenNodes.Count != 0)
             {
                 var currentNode = OpenNodes[0];
@@ -29,7 +30,10 @@ namespace LR1_AI_cs.ai
 
 
                 if (currentNode.Item2.Equals(targetState))
+                {
+                    updateStatisitcs(OpenNodes.Count, ClosedNodes.Count, iterations);
                     return generateHistory(currentNode.Item2);
+                }
 
                 ClosedNodes.Add(currentNode);
                 List<State> childNodes = openState(currentNode.Item2);

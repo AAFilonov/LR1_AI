@@ -58,12 +58,16 @@
         <Compile Include="ai\heurisitc\dbHeuristic\Parser.cs" />
         <Compile Include="ai\IHeuristicEstimator.cs" />
         <Compile Include="ai\ISolutionSearcher.cs" />
+        <Compile Include="ai\searchers\BoundedInDepthSearchSearcher.cs" />
+        <Compile Include="ai\searchers\BoundedManhattenHeuristicSearcher.cs" />
+        <Compile Include="ai\searchers\BoundedManhattenHeuristicSearcherByBest.cs" />
         <Compile Include="ai\searchers\DbHeuristicSearcher.cs" />
         <Compile Include="ai\searchers\HammingHeuristicSearcher.cs" />
         <Compile Include="ai\searchers\InDepthSearchSearcher.cs" />
         <Compile Include="ai\searchers\InWidthSearcher.cs" />
         <Compile Include="ai\heurisitc\HammingEstimator.cs" />
         <Compile Include="ai\heurisitc\ManhattanEstimator.cs" />
+        <Compile Include="ai\searchers\IterativeBoundedInDepthSearchSearcher.cs" />
         <Compile Include="ai\searchers\ManhattenHeuristicSearcher.cs" />
         <Compile Include="Board.cs" />
         <Compile Include="Cell.cs" />

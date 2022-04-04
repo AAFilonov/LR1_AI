@@ -6,11 +6,15 @@ using LR1_AI_cs.Properties;
 
 namespace LR1_AI_cs.ai
 {
-    public class ManhattenHeuristicSearcher : AbstractSolutionSearcher
+    public class BoundedManhattenHeuristicSearcher : AbstractSolutionSearcher
     {
-        private int countClosed { get; set; }
-        private int countOpen { get; set; }
+        private int _nodeLimit;
         private IHeuristicEstimator _heuristicEstimator = new ManhattenEstimator();
+
+        public BoundedManhattenHeuristicSearcher(int nodeLimit)
+        {
+            _nodeLimit = nodeLimit;
+        }
 
         public override List<State> findMoves(State inititalState, State targetState)
         {
@@ -23,6 +27,9 @@ namespace LR1_AI_cs.ai
                 inititalState
             ));
             var iterations = 0;
+            
+            
+            
             while (OpenNodes.Count != 0)
             {
                 iterations++;
@@ -40,6 +47,28 @@ namespace LR1_AI_cs.ai
                 List<State> childNodes = openState(currentNode.Item2);
                 foreach (var childNode in childNodes)
                 {
+                    if (ClosedNodes.Count + OpenNodes.Count >= _nodeLimit)
+                    {
+                        //удалить наихудший узел
+                        var worstNode = OpenNodes.Last();
+                        OpenNodes.RemoveAt(OpenNodes.Count - 1);
+                        //зарезервировать его значение в его родительском узле
+                        var parentNodeIndex = OpenNodes.FindIndex(tuple =>
+                            tuple.Item2.toString().Equals(worstNode.Item2.parent.toString()));
+                        if (parentNodeIndex != -1) //Родительский узел в списке закрытых
+                        {
+                            OpenNodes.Add(
+                                new Tuple<int, State>(worstNode.Item1, OpenNodes[parentNodeIndex].Item2));
+                        }
+
+                        else
+                        {
+                            parentNodeIndex = ClosedNodes.FindIndex(tuple =>
+                                tuple.Item2.toString().Equals(worstNode.Item2.parent.toString()));
+                            OpenNodes.Add(new Tuple<int, State>(worstNode.Item1, ClosedNodes[parentNodeIndex].Item2));
+                        }
+                    }
+
                     var score = calcScore(childNode, targetState);
 
                     var openNode = OpenNodes.Find(tuple => tuple.Item1.Equals(childNode));
@@ -63,6 +92,7 @@ namespace LR1_AI_cs.ai
                 OpenNodes.Sort((tuple1, tuple2) => tuple1.Item1.CompareTo(tuple2.Item1));
                 // ClosedNodes.Sort((tuple1, tuple2) => tuple1.Item1.CompareTo(tuple2.Item1));
             }
+
 
             //no solution, return empty history
             return new List<State>();

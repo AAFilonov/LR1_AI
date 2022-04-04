@@ -88,7 +88,7 @@ namespace TestProject2
             stateToTest._cells[12].color = Cell.Color.BLUE; //to 6
             stateToTest._cells[15].color = Cell.Color.BLUE; //to 17
             int expectedScore = 6;
-            int actualScore = estimator.estimate(stateToTest, _possibleTargets[2]);
+            int actualScore = estimator.estimate(stateToTest, _possibleTargets[1]);
             Assert.AreEqual(expectedScore, actualScore);
         }
     }

@@ -6,11 +6,15 @@ using LR1_AI_cs.Properties;
 
 namespace LR1_AI_cs.ai
 {
-    public class ManhattenHeuristicSearcher : AbstractSolutionSearcher
+    public class BoundedManhattenHeuristicSearcherByBest : AbstractSolutionSearcher
     {
-        private int countClosed { get; set; }
-        private int countOpen { get; set; }
+        private int _nodeLimit;
         private IHeuristicEstimator _heuristicEstimator = new ManhattenEstimator();
+
+        public BoundedManhattenHeuristicSearcherByBest(int nodeLimit)
+        {
+            _nodeLimit = nodeLimit;
+        }
 
         public override List<State> findMoves(State inititalState, State targetState)
         {
@@ -23,12 +27,23 @@ namespace LR1_AI_cs.ai
                 inititalState
             ));
             var iterations = 0;
+
+            var bestForgottenNode = new Tuple<int, State>(Int32.MaxValue, null);
             while (OpenNodes.Count != 0)
             {
-                iterations++;
-                var currentNode = OpenNodes[0];
-                OpenNodes.RemoveAt(0);
+          
+                Tuple<int, State> currentNode;
 
+                //если лист пуст или если самая лучшая в нем хуже лучшей забытой
+                if (OpenNodes.Count <= 0 || OpenNodes[0].Item1 >= bestForgottenNode.Item1)
+                {
+                    OpenNodes.Insert(0, bestForgottenNode);
+                    bestForgottenNode = new Tuple<int, State>(Int32.MaxValue, null);
+                }
+
+
+                currentNode = OpenNodes[0];
+                OpenNodes.RemoveAt(0);
 
                 if (currentNode.Item2.Equals(targetState))
                 {
@@ -40,8 +55,18 @@ namespace LR1_AI_cs.ai
                 List<State> childNodes = openState(currentNode.Item2);
                 foreach (var childNode in childNodes)
                 {
-                    var score = calcScore(childNode, targetState);
+                    if (OpenNodes.Count >= _nodeLimit)
+                    {
+                        //удалить наихудший узел
+                        var worstNode = OpenNodes.Last();
+                        OpenNodes.RemoveAt(OpenNodes.Count - 1);
+                        //зарезервировать его значение в отдельной переменной
 
+                        bestForgottenNode = bestForgottenNode.Item1 > worstNode.Item1 ? worstNode : bestForgottenNode;
+                    }
+
+                    var score = calcScore(childNode, targetState);
+                    iterations++;
                     var openNode = OpenNodes.Find(tuple => tuple.Item1.Equals(childNode));
                     var closedNode = ClosedNodes.Find(tuple => tuple.Item1.Equals(childNode));
                     if (openNode != null && openNode.Item1 < score)
@@ -63,6 +88,7 @@ namespace LR1_AI_cs.ai
                 OpenNodes.Sort((tuple1, tuple2) => tuple1.Item1.CompareTo(tuple2.Item1));
                 // ClosedNodes.Sort((tuple1, tuple2) => tuple1.Item1.CompareTo(tuple2.Item1));
             }
+
 
             //no solution, return empty history
             return new List<State>();

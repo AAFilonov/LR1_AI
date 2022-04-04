@@ -46,6 +46,13 @@
         </Reference>
     </ItemGroup>
     <ItemGroup>
+        <Compile Include="SearchersTests\AbstractSearcherTests.cs" />
+        <Compile Include="SearchersTests\imp\InWidthSearcherTests.cs" />
+        <Compile Include="SearchersTests\imp\IterativeInDepthSearcherTests.cs" />
+        <Compile Include="SearchersTests\imp\ManhattenSearcherTests3.cs" />
+        <Compile Include="SearchersTests\imp\ManhattenSearcherTests5.cs" />
+        <Compile Include="SearchersTests\imp\ManhattenSearcherTests10.cs" />
+        <Compile Include="SearchersTests\imp\ManhattenSearcherTests50.cs" />
         <Compile Include="TestDB.cs" />
         <Compile Include="TestMapper.cs" />
         <Compile Include="TestsDBEstimator .cs" />
