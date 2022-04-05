@@ -14,10 +14,11 @@ namespace TestProject2.SearchersTests
         protected ISolutionFinder _searcher;
 
         public abstract ISolutionFinder getSearcher();
-
+        private long memoryPerNode = memoryForNode();
         [OneTimeSetUp]
         public void Setup()
         {
+            //назанчает различную реализацию в каждом алгоритме
             this._searcher = getSearcher();
         }
 
@@ -25,7 +26,7 @@ namespace TestProject2.SearchersTests
 
         public void runTest(MyTest test)
         {
-            var memoryPerNode = memoryForNode();
+          
 
             Stopwatch clock = Stopwatch.StartNew();
             var result = test();
@@ -45,7 +46,7 @@ namespace TestProject2.SearchersTests
         }
 
 
-        public long memoryForNode()
+        public static long memoryForNode()
         {
             var before = GC.GetTotalMemory(true);
             var node = new Tuple<int, State>(0, new State());
@@ -117,7 +118,7 @@ namespace TestProject2.SearchersTests
                 targetState._cells[18].color = Cell.Color.RED;
 
                 State initialState = new State();
-                initialState._cells[2].color = Cell.Color.RED;
+                initialState._cells[1].color = Cell.Color.RED;
                 initialState._cells[16].color = Cell.Color.RED;
 
 
@@ -157,7 +158,7 @@ namespace TestProject2.SearchersTests
                 targetState._cells[18].color = Cell.Color.RED;
 
                 State initialState = new State();
-                initialState._cells[4].color = Cell.Color.RED;
+                initialState._cells[6].color = Cell.Color.RED;
                 initialState._cells[13].color = Cell.Color.RED;
 
 
