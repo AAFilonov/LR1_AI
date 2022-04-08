@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using LR1_AI_cs.ai.heurisitc.dbHeuristic;
 using LR1_AI_cs.Properties;
 
@@ -7,64 +8,98 @@ namespace LR1_AI_cs.ai
 {
     public class DbEstimator : IHeuristicEstimator
     {
-        private string DB_NAME;
-        private DB _db;
-        private List<TargetEstimator> _estimators = new List<TargetEstimator>();
-        private readonly List<State> _possibleTargets = new List<State>();
+        private readonly string _dbName;
+        private readonly DB _db;
+        private readonly List<TargetEstimator> _estimators = new List<TargetEstimator>();
 
-        private DbStateMapper stateMapper;
+        private int MAX_DEPTH = 10;
+
+        private DbStateMapper _stateMapper;
 
         public DbEstimator(string dbName)
         {
-            DB_NAME = dbName;
-            _db = new DB(DB_NAME);
+            _dbName = dbName;
+            _db = new DB(_dbName);
+            _stateMapper = new DbStateMapper(_db);
             
-            stateMapper = new DbStateMapper(_db);
-            State state2Pos = new State();
-            state2Pos._cells[0].color = Cell.Color.BLUE;
-            state2Pos._cells[18].color = Cell.Color.BLUE;
-            _possibleTargets.Add(state2Pos);
-
-            State state3Pos = new State();
-            state3Pos._cells[3].color = Cell.Color.BLUE;
-            state3Pos._cells[6].color = Cell.Color.BLUE;
-            state3Pos._cells[17].color = Cell.Color.BLUE;
-            _possibleTargets.Add(state3Pos);
-
-            State state4Pos = new State();
-            state4Pos._cells[3].color = Cell.Color.BLUE;
-            state4Pos._cells[6].color = Cell.Color.BLUE;
-            state4Pos._cells[12].color = Cell.Color.BLUE;
-            state4Pos._cells[15].color = Cell.Color.BLUE;
-            _possibleTargets.Add(state4Pos);
-
-            _possibleTargets.ForEach(state => _estimators.Add(new TargetEstimator(state, _db)));
-            DbStateMapper mapper = new DbStateMapper(_db);
-
-            mapper.mapPartial(_possibleTargets[0], 20);
-            mapper.mapPartial(_possibleTargets[1], 20);
-            mapper.mapPartial(_possibleTargets[2], 20);
+            _db.findDistingTargetStates().ForEach(state => _estimators.Add(new TargetEstimator(state, _db)));
         }
 
         public int estimate(State initialState, State targetState)
         {
-            foreach (var estimator in _estimators)
+          
+            try
             {
-                if (estimator.targetState.Equals(targetState))
+                var targetTemplate = toTemplate(targetState);
+                var initialTemplate = toTemplate(initialState);
+                Console.WriteLine("Starting to find  "+initialTemplate.toString()+" "+ targetTemplate.toString() );
+                foreach (var estimator in _estimators)
                 {
-                    return estimator.estimate(initialState);
+                    if (estimator.targetState.Equals(targetTemplate))
+                    {
+                        Console.WriteLine("Result for" + initialState.toString() +" "+targetState.toString()  + "  was found  instanly");
+                        return estimator.estimate(initialTemplate);
+                    }
+                }
+                //эстиматор для такого целевого состояния не найден
+                return mapNewTargetState(initialState, targetState);
+            }
+            catch (Exception e)
+            {
+                //эстиматор нашелся, но расчитанной глубины для него не хватило
+                return mapNewTargetState(initialState, targetState);
+            }
+
+        }
+
+        private int mapNewTargetState(State initialState, State targetState)
+        {
+
+            var targetTemplate = toTemplate(targetState);
+            var initialTemplate = toTemplate(initialState);
+          
+            int depth = 1;
+            var estimatorForNewTargetState = new TargetEstimator(targetTemplate, _db);
+            while (depth <= MAX_DEPTH)
+            {
+                Console.WriteLine("Trying to map state " + targetTemplate.toString() + " with depth " + depth);
+                _stateMapper.map(targetTemplate, depth);
+                try
+                {
+                    int result = estimatorForNewTargetState.estimate(initialTemplate);
+                    //если не нашлось - выкинет исключение
+                    Console.WriteLine("Result for" +initialTemplate.toString()+" "+ targetTemplate.toString() + "  was found  on depth " + depth);
+                    _estimators.Add(estimatorForNewTargetState);
+                    return result;
+                }
+                catch (Exception e)
+                {
+                    depth++;
                 }
             }
 
-            throw new Exception("Evaluator not found for target" + targetState);
+            throw new Exception("State " + targetState + " is too deep for mapping!");
+        }
 
-            // целевое состояние не найдено - нужно найти!
-            //нужно добавить в БД таблицу с парами полное состояние + частичный его шаблон 
-            // при запуске читать из таблицы все такие записи и для каждой создавать эстиматор
-            //когда натыкаемся на состояние, для которого эстиматора нет,
-            //выполняем маппинг, создаем эстиматор в и заносим в бд запись об нем
-            //тогда в соедующий раз эстиматор прочитается из базы - самополполняемая база!
-            // stateMapper.mapPartial(targetState, 10);
+        private State toTemplate(State state)
+        {
+            State template = new State(state);
+            int amountOfColors = state._cells.GroupBy(cell => cell.color).Count();
+
+            template._cells.ToList().ToList().ForEach(cell =>
+            {
+                if (cell.color == Cell.Color.GRAY)
+                {
+                    cell.color = Cell.Color.UNDEF;
+                }
+                //если цветов всего два - преобразовываем не-серые в синий
+                else if (amountOfColors == 2)
+                {
+                    cell.color = Cell.Color.BLUE;
+                }
+                //Иначе считаем каждую комбинацию расположения шаров разных цветов уникальным целевым состоянием
+            });
+            return template;
         }
     }
 }

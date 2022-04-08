@@ -60,12 +60,12 @@ namespace LR1_AI_cs.ai.heurisitc.dbHeuristic
             var result = findByTargetAndTemplate(targetStr, templateStr);
             if (result.Count != 0)
             {
-                Console.WriteLine("Record for  state " + targetStr + " " + targetStr + " already exist,  eval is " +
+                Console.WriteLine("Record for  state " + stateToSave + " " + targetStr + " already exist,  eval is " +
                                   result[0].Item3 + "");
             }
             else
             {
-                Console.WriteLine("Saving state " + targetStr + " " + targetStr + " with eval(" + eval + ")");
+                Console.WriteLine("Saving state " + stateToSave + " " + targetStr + " with eval(" + eval + ")");
                 insert(eval, templateStr, targetStr);
             }
         }
@@ -135,6 +135,30 @@ namespace LR1_AI_cs.ai.heurisitc.dbHeuristic
             }
 
             Console.Write("] (" + eval + ")\n");
+        }
+
+        public List<State> findDistingTargetStates()
+        {
+            var connection = getConnetion();
+            String querry = "SELECT DISTINCT [target] FROM " + TABLE_NAME ;
+
+            SQLiteCommand Command = new SQLiteCommand(querry, connection);
+            connection.Open();
+            var results = new List<State>();
+            using (var reader = Command.ExecuteReader())
+            {
+                if (reader.HasRows) // если есть данные
+                {
+                    while (reader.Read()) // построчно считываем данные
+                    {
+                        var targetStr = reader.GetString(0);
+                        var state = Parser.fromString(targetStr);
+                        results.Add(state);
+                    }
+                }
+            }
+
+            return results;
         }
     }
 }

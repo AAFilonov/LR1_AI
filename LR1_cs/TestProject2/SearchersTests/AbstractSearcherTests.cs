@@ -15,6 +15,7 @@ namespace TestProject2.SearchersTests
 
         public abstract ISolutionFinder getSearcher();
         private long memoryPerNode = memoryForNode();
+
         [OneTimeSetUp]
         public void Setup()
         {
@@ -26,8 +27,6 @@ namespace TestProject2.SearchersTests
 
         public void runTest(MyTest test)
         {
-          
-
             Stopwatch clock = Stopwatch.StartNew();
             var result = test();
             clock.Stop();
@@ -66,6 +65,24 @@ namespace TestProject2.SearchersTests
 
                 State targetState = new State();
                 targetState._cells[1].color = Cell.Color.RED;
+                var result = _searcher.findMoves(initialState, targetState);
+                Assert.NotZero(result.Count);
+                return result;
+            });
+        }
+
+
+        [Test]
+        public void _1test_depth1Multiple()
+        {
+            runTest(() =>
+            {
+                State initialState = new State();
+                initialState._cells[0].color = Cell.Color.RED;
+
+                State targetState = new State();
+                targetState._cells[1].color = Cell.Color.RED;
+                _searcher.findMoves(initialState, targetState);
                 var result = _searcher.findMoves(initialState, targetState);
                 Assert.NotZero(result.Count);
                 return result;
